@@ -46,8 +46,7 @@ See [licence scope](LICENSE_SCOPE.md), [AI use](AI_USE.md) and [citation](CITATI
 ## Companion identity
 
 Canonical repository address: [https://github.com/aconsciousfractal/FCIG-Exact-Fibre-Geometry-Arithmetic-Derivatives](https://github.com/aconsciousfractal/FCIG-Exact-Fibre-Geometry-Arithmetic-Derivatives).
-This is the prepared, unpublished version **0.2.3**; anonymous access at that
-address must be confirmed on public release.
+Companion version: **0.2.3**.
 
 Computational evidence manifest: [EVIDENCE_SHA256.txt](EVIDENCE_SHA256.txt).
 Its SHA-256 is `9dba941d261ab87247323478b41bda18dd422b902f4f9f5ad1179d86ccdfe01c`.

@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "Unpublished companion; canonical URL reserved for public distribution. Cite the manuscript, companion version and evidence identity."
+message: "Please cite the manuscript, companion version and evidence identity."
 type: software
 title: "Exact bounded fibres and the cost of primitive Wronskians"
 version: "0.2.3"
