@@ -1,0 +1,8 @@
+* text=auto eol=lf
+*.pdf -text -filter -merge -diff
+*.json text eol=lf -filter
+*.tex text eol=lf -filter
+*.py text eol=lf -filter
+# Preserve exact certificate bytes on every platform.
+companion/expected_output.json -text
+companion/k47_certificate.json -text

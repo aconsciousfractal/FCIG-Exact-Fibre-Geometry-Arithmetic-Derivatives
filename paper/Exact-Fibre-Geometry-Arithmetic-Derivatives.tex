@@ -1,0 +1,1599 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,amssymb,amsthm,booktabs,array}
+\usepackage{microtype,fancyhdr}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{
+  pdftitle={Exact bounded fibres and the cost of primitive Wronskians},
+  pdfauthor={Oleksiy Babanskyy},
+  pdfsubject={Arithmetic derivatives, bounded integer fibres and primitive Wronskian costs},
+  pdfkeywords={arithmetic derivatives, integer lattices, bounded fibres, Wronskians, exact certificates}
+}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{\small Exact fibres and primitive Wronskians}
+\fancyhead[R]{\small O. Babanskyy}\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{definition}\newtheorem{question}[theorem]{Question}
+\theoremstyle{remark}\newtheorem{remark}[theorem]{Remark}
+\newcommand{\Z}{\mathbb Z}\newcommand{\R}{\mathbb R}
+\newcommand{\Dgen}{\mathcal D}\newcommand{\mpr}{m_{\mathrm{prim}}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert_\infty}
+\newcommand{\hh}{\mathfrak h}\newcommand{\ee}{\mathrm e}
+\DeclareMathOperator{\rad}{rad}\DeclareMathOperator{\supp}{supp}
+\DeclareMathOperator{\lcm}{lcm}\DeclareMathOperator{\ord}{ord}
+\title{Exact bounded fibres and the cost of primitive Wronskians}
+\author{Oleksiy Babanskyy\\[2pt]\small\href{https://orcid.org/0009-0001-6176-6208}{ORCID: 0009-0001-6176-6208}}
+\date{}
+\begin{document}\maketitle
+\begin{abstract}
+An arithmetic derivative additive on a fixed coprime equation $a+b=c$
+may have a nonzero Wronskian without representing a generator of its
+integer image. We compare the least maximum norms for these two tasks
+in the original prime coordinates. For an odd prime $q$ such that
+$q+2$ has a prime divisor of exponent one, the nonzero minimum for
+$2+q=q+2$ is one, while the primitive minimum is exactly
+$(q-\Dgen)/2$ when $q+2$ is composite and $(q+1)/2$ when it is prime.
+The image generator is explicit, and the excluded prime indices have
+relative density zero. We also give exact bounded-fibre formulas and
+extend the analysis to the radical-small triples $1+(x^N-1)=x^N$,
+with $N=4\rad_{\rm odd}(x+1)$. A uniform comparison identifies their
+minimum ratio with a simultaneous modular-return problem on a
+positive-density set of bases. In this family the number of large
+active coordinates grows in density; at feasible subquadratic budgets,
+fixed-order frequency interactions and polynomially many explicit
+Fourier terms cannot certify a return outside a set of density zero. Exact certificates give
+the two minima for $2+3^{47}$ and for the bases $x=14,44$.
+Unbounded separation in the fixed-power family and in the radical-small
+regime remains open. No consequence for the $abc$ conjecture is claimed.
+\end{abstract}
+\clearpage\tableofcontents\clearpage
+
+\section{The two minimum problems}\label{sec:intro}
+Let $1\le a\le b$, $a+b=c>2$, and $\gcd(a,b)=1$. The prime supports
+of $a,b,c$ are pairwise disjoint. In the model of Pasten
+\cite[Sections 2.2 and 2.4]{Pasten}, a derivative supported on
+$S=\supp(abc)$ is specified by integers $z=(z_p)_{p\in S}$. Set
+\begin{align}
+ D_n(z)&=\sum_{p\mid n}\frac{n v_p(n)}p z_p,&
+ F(z)&=D_a(z)+D_b(z)-D_c(z),\label{eq:model}\\
+ W(z)&=aD_b(z)-bD_a(z),&
+ \Lambda&=\ker_{\Z}F,\quad \Lambda_0=\Lambda\cap\ker_{\Z}W.\nonumber
+\end{align}
+Empty sums are zero. All norms are $\norm{z}=\max_{p\in S}|z_p|$
+in these original prime coordinates. The independent rows $F,W$ have
+coefficient ratios $-b,a,0$ on their nonempty blocks, of which there
+are at least two. Consequently $W(\Lambda)=\Dgen\Z$ for some
+$\Dgen>0$. Define
+\begin{equation}\label{eq:minima}
+ m(a,b)=\min_{\substack{z\in\Lambda\\W(z)\ne0}}\norm{z},\qquad
+ \mpr(a,b)=\min_{\substack{z\in\Lambda\\W(z)=\Dgen}}\norm{z}.
+\end{equation}
+Both minima exist. In this paper \emph{primitive} means a generator
+of the image, equivalently of $\Lambda/\Lambda_0$. It does not mean
+merely that the coordinates of $z$ have gcd one. Changing the sign of
+the specified generator does not change its minimum.
+
+\begin{theorem}[Exact primitive cost for almost all prime indices]\label{thm:main}
+Let $q\ge3$ be prime and suppose $c=q+2$ is not powerful, that is,
+some prime divisor of $c$ occurs with exponent one. Put
+$R_c=\prod_{p\mid c,\ p\nmid v_p(c)}p$ and $D=c/R_c$. Then
+\begin{equation}\label{eq:main}
+ \Dgen=D,\qquad m(2,q)=1,\qquad
+ \mpr(2,q)=
+ \begin{cases}(q-D)/2,&c\text{ composite},\\(q+1)/2,&c\text{ prime}.
+ \end{cases}
+\end{equation}
+In the composite case every minimizer for $W=D$ has
+\begin{equation}\label{eq:main-opts}
+ z_2=-1,\quad z_q=-(q-D)/2,\quad D_c(z)=(D-c)/2,
+ \quad |z_p|\le(q-D)/2\quad(p\mid c),
+\end{equation}
+and every vector satisfying these conditions is a minimizer. In the
+prime case the unique positive-generator minimizer is
+$(-1,-(q-1)/2,-(q+1)/2)$ in coordinates $(2,q,c)$.
+Among prime indices $q\le Q$ fewer than $3\sqrt{Q+2}$ are excluded.
+Thus, on a set of relative density one among primes,
+\begin{equation}\label{eq:prime-gap}
+ m=1,\qquad (q-1)/3\le\mpr\le(q+1)/2.
+\end{equation}
+\end{theorem}
+
+The norm-one pattern $z_2=-1,z_q=1$, with the $c$-block zero,
+has $F=0,W=c$. The substantive part of the theorem is the bounded
+lift of the primitive value, not the mere computation of its image.
+The elementary case $v_3(q+2)=1$ is contained in its composite branch.
+All these triples satisfy $\rad(2q(q+2))\ge6q>q+2$.
+
+The extension to radical-small triples has a different conclusion.
+For $N=4\rad_{\rm odd}(x+1)$ and $b=x^N-1$, we construct an exact
+simultaneous-return function $h_x(u)$, with $G_x=h_x(1)$ and
+$\tau_x=\min_{u\ge1}h_x(u)$. On a positive-density set of bases
+there is a constant $C_0$, independent of $x$, such that
+\begin{equation}\label{eq:intro-compare}
+ \frac{G_x}{C_0\tau_x}\le\frac{\mpr(1,b)}{m(1,b)}
+ \le\frac{C_0G_x}{\tau_x}.
+\end{equation}
+Theorem~\ref{thm:comparison} gives the effective constant and
+Theorem~\ref{thm:domain} supplies the common domain. These statements
+transfer a favourable return if one is found; they do not assert
+unbounded $G_x/\tau_x$. Theorems~\ref{thm:rank}--\ref{thm:barrier}
+explain an obstruction to using bounded-order spectral certificates
+at subquadratic budgets. Section~\ref{sec:finite} records exact finite
+minima, including the full $2+3^{47}$ certificate.
+
+\subsection{Position relative to earlier work}
+The derivative lattice, its norm, the additive condition and the
+Wronskian are inherited from Pasten \cite{Pasten}; in particular his
+Lemma 3.5 concerns nonvanishing, which is weaker than fixing the
+positive image generator. The row-index calculation is a specialization
+of determinantal divisors and Smith normal form
+\cite[Theorem 2.4]{Stanley}. The complementary-weight residue and
+composition mechanism is present in Garc\'ia-S\'anchez, Ojeda and
+Rosales \cite[Proposition 1(c) and Example 12]{UniqueBetti}, and in
+the numerical-semigroup literature
+\cite[Section 3.1]{Autry}\cite[Proposition 5.5]{CyrusianKaplan}.
+We make that mechanism explicit for signed original-coordinate bounds,
+including primes dividing their exponents. The covering proposition
+in Appendix~\ref{app:radius} belongs to prescribed-sum rounding;
+Cont and Heidari \cite{ContHeidari} provide related optimization results.
+
+The precise claims advanced here are the arithmetic cost formula,
+the simultaneous-return comparison with its explicit constants,
+the arithmetic growth statement and its stated certificate obstruction,
+and the exact original-coordinate examples. Chinese remaindering,
+valuation formulas, cyclotomic order arguments and positivity of Fourier
+autocorrelations are classical ingredients. The density-domain input
+is attributed to Pascadi \cite{Pascadi}, including the use of the
+strict margin in his weighted argument; the deduction is written out
+in Appendix~\ref{app:domain}. The comparisons above delimit the claims;
+they do not constitute a guarantee of bibliographic priority.
+
+\section{Image indices and exact bounded fibres}\label{sec:fibres}
+\subsection{The image generator}
+For \(n>1\), let
+\[
+ g_n=\gcd_{p\mid n}\left(\frac{n v_p(n)}p\right),\qquad g_1=0.
+\]
+\begin{lemma}[Integer-row image calculation]\label{lem:image}
+Writing \(h_0=\gcd(g_a,g_b,g_c)\), one has
+\begin{equation}\label{eq:image}
+ \Dgen=\frac{\gcd(cg_ag_b,\;bg_ag_c,\;ag_bg_c)}{h_0}.
+\end{equation}
+\end{lemma}
+\begin{proof}
+By B\'ezout's identity the three derivative blocks have independent
+images \(g_a\Z,g_b\Z,g_c\Z\). On their product the two rows become
+\((g_a,g_b,-g_c)\) and \((-bg_a,ag_b,0)\).
+For independent integer rows \(f,w\), choose a unimodular matrix \(U\)
+with \(fU=(\gcd(f),0,\ldots,0)\). The image of \(w\) on the integral
+kernel is generated by the remaining entries of \(wU\).
+The gcd of the two-row minors, invariant under \(U\), is therefore
+\(\gcd(f)\) times that generator. The three minors of the displayed
+rows give \eqref{eq:image}. This argument also permits the empty
+\(a=1\) block.
+\end{proof}
+
+\subsection{A prime block with signed coordinate caps}
+Fix \(n=\prod_{i=1}^r p_i^{e_i}>1\) with distinct primes \(p_i\). Define
+\begin{equation}\label{eq:block-data}
+ \rho_i=\gcd(p_i,e_i),\quad \ell_i=p_i/\rho_i,\quad
+ a_i=e_i/\rho_i,\quad
+ R=\prod_i\ell_i,\quad G=\gcd_i a_i,\quad f_i=a_i/G.
+\end{equation}
+A prime dividing its own exponent has \(\ell_i=1\); it contributes no
+residual modulus. The nontrivial \(\ell_i\)'s are pairwise coprime and
+\begin{equation}\label{eq:block-gcd}
+ g_n=\frac nR G,\qquad
+ \frac{n e_i/p_i}{g_n}=f_i\frac R{\ell_i}.
+\end{equation}
+Indeed the numbers \(f_iR/\ell_i\) have gcd one: a common prime outside
+\(R\) would divide every \(f_i\), whereas a prime \(p_i\mid R\) does not
+divide the \(i\)-th number. This also proves the inverses used next exist.
+
+For integers \(B\ge0,t\), write
+\[
+ \Phi_{n,B}(t)=\#\{x\in[-B,B]^r\cap\Z^r:D_n(x)=t\}.
+\]
+\begin{proposition}[Bounded block normal form]\label{prop:normal}
+If \(g_n\nmid t\), then \(\Phi_{n,B}(t)=0\). Otherwise put \(s=t/g_n\),
+and choose \(0\le r_i<\ell_i\) by
+\[
+ r_i\equiv s(f_iR/\ell_i)^{-1}\pmod{\ell_i},
+ \qquad r_i=0\text{ if }\ell_i=1.
+\]
+Then
+\[
+ H=\frac{s-\sum_i f_i(R/\ell_i)r_i}{R}
+\]
+is integral, and every solution is uniquely of the form
+\begin{equation}\label{eq:normal}
+ x_{p_i}=r_i+\ell_i y_i,\qquad
+ \sum_i f_i y_i=H,\qquad y_i\in\Z.
+\end{equation}
+The original bounds are exactly
+\begin{equation}\label{eq:caps}
+ L_i=\left\lceil\frac{-B-r_i}{\ell_i}\right\rceil
+ \le y_i\le
+ U_i=\left\lfloor\frac{B-r_i}{\ell_i}\right\rfloor.
+\end{equation}
+If these intervals are nonempty, the count equals
+\begin{equation}\label{eq:coefficient}
+ \Phi_{n,B}(t)=
+ [z^{\,H-\sum_i f_iL_i}]
+ \prod_i\left(1+z^{f_i}+\cdots+z^{f_i(U_i-L_i)}\right).
+\end{equation}
+An empty interval or a negative requested exponent gives count zero.
+\end{proposition}
+\begin{proof}
+Divide the block equation by \(g_n\) and reduce modulo each
+\(\ell_i>1\). All terms except the \(i\)-th vanish, forcing its residue.
+The numerator defining \(H\) is divisible by every nontrivial modulus
+and hence by \(R\), also when \(R=1\).
+Substitution gives \eqref{eq:normal}, and each step is reversible.
+The positive coordinate steps give \eqref{eq:caps}. Shift \(y_i\) by
+\(L_i\) and multiply the finite geometric polynomials to obtain
+\eqref{eq:coefficient}.
+\end{proof}
+
+The weighted equation in \eqref{eq:normal} is indispensable. For
+\(n=15,B=1\), the block \(5x_3+3x_5\) attains precisely
+\[
+ \{-8,-5,-3,-2,0,2,3,5,8\}.
+\]
+Its gcd is one and its real range is \([-8,8]\), but it does not attain
+\(1\). Divisibility and interval membership do not replace bounded
+integer feasibility.
+
+\subsection{Assembly of the three source blocks}
+Set \(A_n=\sum_{p\mid n}n v_p(n)/p\), with \(A_1=0\).
+For an empty block put \(\Phi_{1,B}(0)=1\), with all other values zero;
+also interpret \(\Phi_{n,B}\) at a noninteger argument as zero.
+\begin{corollary}\label{cor:global}
+For any integer \(w\), the exact number of bounded vectors with
+\(F=0,W=w\) is
+\begin{equation}\label{eq:global}
+ M_w(B)=\sum_{t=-BA_c}^{BA_c}
+ \Phi_{a,B}\!\left(\frac{at-w}{c}\right)
+ \Phi_{b,B}\!\left(\frac{bt+w}{c}\right)\Phi_{c,B}(t).
+\end{equation}
+Thus \(\mpr\) is the first budget with \(M_{\Dgen}(B)>0\), and \(m\)
+is the first with \(M_w(B)>0\) for some nonzero \(w\).
+It suffices to inspect
+\(|w|\le B(aA_b+bA_a)\) and multiples of \(\Dgen\).
+\end{corollary}
+\begin{proof}
+For \(D_c=t\), solve \(D_a+D_b=t\) and \(aD_b-bD_a=w\):
+\(D_a=(at-w)/c\), \(D_b=(bt+w)/c\). The three disjoint source blocks
+are independent, and the values of \(t\) partition the fibre.
+The stated bound on \(w\) follows from the triangle inequality.
+\end{proof}
+These are counts of original vectors, including their signs and
+nonprimitive multiples. Formula~\eqref{eq:global} is a reference
+description, not a polynomial-time complexity claim.
+
+\section{Proof of the prime-family theorem}\label{sec:main-proof}
+For every odd prime $q$, the norm-one vector described after
+Theorem~\ref{thm:main} proves $m=1$. Under its hypothesis choose a
+simple prime $\ell\mid c$, meaning $v_\ell(c)=1$.
+Every coefficient of $D_c$ is divisible by $D=c/R_c$.
+The normalized coefficient at $\ell$ is $R_c/\ell$.
+A common prime divisor of all normalized coefficients would therefore
+be some $p\mid R_c$, $p\ne\ell$; but the coefficient
+$(R_c/p)v_p(c)$ is a unit modulo $p$. Hence $g_c=D$.
+The equation $F=0$ is equivalent to $z_2+z_q\in D\Z$, with every
+such source pair liftable by B\'ezout. Writing $z_q=Dt-z_2$ gives
+$W=2Dt-cz_2$, whose image is $D\Z$ since $c/D$ is odd.
+
+Suppose first that $c$ is composite. Then $D\le c/3<q$.
+The primitive source equation $2z_q-qz_2=D$ makes $z_2$ odd.
+For $z_2\ge1$, $z_q\ge(q+D)/2$; for $z_2\le-1$,
+$|z_q|\ge(q-D)/2=:B$, with equality only when $z_2=-1,z_q=-B$.
+It remains to lift the target $D_c=(D-c)/2$ inside the same cube.
+
+Write $c=\ell v$ and $r=\sum_{p\mid v}v_p(v)\ge1$; here
+$v\ge3$ and $\ell\nmid v$. Put $R=R_c$ and $L=(1-R)/2$.
+For each active $p\ne\ell$, choose the centered representative of
+$(R v_p(c)/p)z_p\equiv L\pmod p$; set inactive coordinates to zero.
+The pivot
+\[
+ z_\ell=\frac{L-\sum_{p\mid R,\ p\ne\ell}(Rv_p(c)/p)z_p}{R/\ell}
+\]
+is integral by reduction modulo every prime of $R/\ell$, and the
+target row equals $DL$. Since $D\le v$,
+$B\ge((\ell-1)v-2)/2\ge v-1$; every nonpivot coordinate is at most
+$(v-1)/2$. For the pivot,
+\[
+ |z_\ell|\le\ell |L|/R+
+ \ell\sum_{p\mid R,\ p\ne\ell}v_p(c)|z_p|/p
+ <\ell(1+r)/2.
+\]
+If $\ell\ge5$, $v\ge3^r$ and
+$\ell(1+r)\le(\ell-1)3^r-2\le(\ell-1)v-2$.
+The first inequality holds at $r=1$; its right-hand increment
+$2(\ell-1)3^r$ exceeds the left-hand increment $\ell$.
+If $\ell=3$, $v\ge5^r$, and the same induction gives
+$3(1+r)\le2\cdot5^r-2\le2v-2$.
+Thus the pivot also lies in the cube of radius $B$.
+This proves the composite formula and the optimizer description.
+
+If $c$ is prime, $D=1$ and $z_c=z_2+z_q$.
+The choice $z_2=-1$ gives the stated vector of norm $(q+1)/2$.
+Positive odd $z_2$ forces $z_c\ge(q+3)/2$; $z_2\le-3$ forces
+$|z_q|\ge(3q-1)/2>(q+1)/2$. This proves uniqueness, also for $q=3$.
+
+Every powerful integer has a unique representation $a^2b^3$ with
+$b$ squarefree: the primes in $b$ are precisely those with odd
+exponent. The number at most $T$ is bounded by
+$\sqrt T\sum_{b\ge1}b^{-3/2}<3\sqrt T$.
+For completeness $\pi(Q)\gg Q/\log Q$ follows elementarily from
+\[
+ \frac{4^n}{2n+1}\le\binom{2n}{n}\le(2n)^{\pi(2n)}:
+\]
+Legendre's formula bounds the exponent of $p$ in the binomial
+coefficient by $\lfloor\log_p(2n)\rfloor$.
+Taking $n=\lfloor Q/2\rfloor$ proves that the relative exceptional
+proportion is $O(\log Q/\sqrt Q)$. The inequalities in
+\eqref{eq:prime-gap} follow from $D\le c/3$ in the composite branch.
+This completes the proof of Theorem~\ref{thm:main}.
+
+\begin{remark}[Necessary boundary distinctions]
+At $q=3,c=5$, the primitive minimum is $2$, not the composite expression
+$1$. At $q=47,c=49$, $D_c=14z_7$ and $\Dgen=7$.
+The putative composite cost $20$ forces $z_2=-1,z_q=-20$ and
+$D_c=-21$, which is impossible. The vector $(1,27,2)$ has primitive
+norm $27$; the source equation excludes any smaller value except the
+already impossible source pair. Thus the nonpowerful hypothesis
+cannot simply be dropped.
+\end{remark}
+
+\section{A radical-small family and its image}\label{sec:extension}
+Write $\hh(n)=n/\rad(n)$ for $n\ge1$, with $\hh(1)=1$.
+For an integer $x\ge2$, fix
+\begin{equation}\label{eq:family}
+ N=N(x)=4\rad_{\rm odd}(x+1)=\lcm(4,\rad(x+1)),\quad
+ b=x^N-1,\quad C=Nx^{N-1}.
+\end{equation}
+Here $\rad_{\rm odd}$ omits the prime $2$. The derivative coordinates
+of $x^N$ are the prime coordinates of $x$, and $D_{x^N}=C D_x$.
+For the triple $1+b=x^N$, the equations are therefore
+\begin{equation}\label{eq:two-row}
+ D_b=C D_x,\qquad W=D_b.
+\end{equation}
+All constants and residues below refer to this particular base $x$.
+
+\begin{proposition}[Radical inequality and exact image]\label{prop:radical-image}
+For \eqref{eq:family},
+\begin{equation}\label{eq:radical}
+ x+1\mid\hh(b),\qquad
+ \rad(xb)\le\frac{xb}{x+1}<x^N.
+\end{equation}
+Writing $g_n=\gcd_{p\mid n}(n v_p(n)/p)$, the integer values of $D_x$
+allowed by \eqref{eq:two-row} are precisely $\Delta\Z$, where
+\begin{equation}\label{eq:delta}
+ \Delta=\frac{g_xg_b}{\gcd(g_b,Cg_x)},\qquad \Dgen=C\Delta.
+\end{equation}
+If $b$ has a simple prime, define, for $p\mid b$,
+\[
+ s_p=\begin{cases}
+ v_p(x^{\ord_p(x)}-1)-1,&p\text{ odd},\\
+ v_2(x-1)+v_2(x+1)-2,&p=2,
+ \end{cases}\qquad
+ H=\prod_{p\mid b}p^{s_p},\quad I=\prod_{\substack{p\mid b\\p\mid v_p(b)}}p.
+\]
+Then $s_p\ge0$, $v_p(b)=1+v_p(N)+s_p$, and
+\begin{equation}\label{eq:delta-local}
+ \Delta=\lcm(g_x,HI),\qquad H\mid\Delta,\qquad\hh(x)\le g_x\le\Delta.
+\end{equation}
+If also $x$ has a simple prime, $\Delta=g_xHI$.
+\end{proposition}
+\begin{proof}
+For odd $p\mid x+1$, the lifting-the-exponent identity gives
+$v_p(b)=v_p(x+1)+v_p(N)$; hence $v_p(\hh(b))\ge v_p(x+1)$
+exactly when $p\mid N$. For odd $x$, the identity at $2$ is
+$v_2(b)=v_2(x-1)+v_2(x+1)+v_2(N)-1$, and $4\mid N$ suffices.
+These prove the divisibility and radical estimate. They also show
+that among multiples of $4$, the least exponent giving this
+\emph{divisibility} is $N(x)$. This is not a claim of a least exponent
+for the radical inequality itself.
+
+The two row images are $g_x\Z,g_b\Z$. Their intersection condition
+is $D_x\in g_x\Z$ and $CD_x\in g_b\Z$, yielding \eqref{eq:delta}.
+For odd $p\mid b$, $\ord_p(x)\mid N$ and is coprime to $p$;
+the valuation formula follows by lifting the exponent. The displayed
+formula for $2$ follows from $v_2(N)=2$.
+If $b$ has a simple prime, its normalized exponent gcd in
+\eqref{eq:block-data} is one, so
+$g_b=b/\prod_{p\mid b,\ p\nmid v_p(b)}p$.
+At a prime $p\mid b$, $p\nmid x$ and $v_p(C)=v_p(N)$.
+Thus the exponent contributed by $g_b/\gcd(g_b,C)$ is
+$s_p+\boldsymbol{1}_{p\mid v_p(b)}$.
+At primes not dividing $b$ it is zero. Combining with $g_x$ proves
+the lcm formula. Every coefficient in the $x$ row is divisible by
+$\hh(x)$, and $g_x\mid\Delta$. If $x$ has a simple prime its row gcd
+is supported on $x$, which is coprime to $b$, proving the last assertion.
+\end{proof}
+
+An explicit large phase is available: if $P>x$ divides $x^2+1$, then
+$\ord_P(x)=4$, $P\nmid N$, and $v_P(x^2+1)=1$.
+Consequently $P$ is simple in $b$. With $Q=(x^2+1)/P$, reduction of
+the identity $(X^N-1)=(X^2+1)U(X)$ and its formal derivative at $x$
+gives
+\begin{equation}\label{eq:large-phase}
+ Q z_P\equiv 2xD_x\pmod P.
+\end{equation}
+Indeed $N x^{N-1}\equiv2xU(x)\pmod P$ and $b/P=Q U(x)$,
+with $U(x)$ a unit. In this differentiation $N$ is held fixed.
+The prime-factor theorem of Pascadi \cite[Theorem 1]{Pascadi}
+supplies infinitely many such $P>x^{1.3}$. A large modulus alone
+does not establish a favourable return or a gap in the minima.
+
+\section{Uniform lifting of all simultaneous phases}\label{sec:comparison}
+For a row $D_n=\sum_i A_i z_i$, put $S_n=\sum_i A_i$.
+Use the normalized data of \eqref{eq:block-data} and write
+$A_i/g_n=f_iR/\ell_i$. An index $j$ with $f_j=1$ is called a
+\emph{unit anchor}. A simple prime is always a unit anchor.
+For $T\in g_n\Z$, let $r_i(T)$ be the centered representative of
+\begin{equation}\label{eq:global-residue}
+ r_i(T)\equiv(T/g_n)(A_i/g_n)^{-1}\pmod{\ell_i},
+\end{equation}
+and set $r_i=0$ if $\ell_i=1$. For even modulus use the representative
+in $(-\ell_i/2,\ell_i/2]$; either tie has the same absolute value.
+These are residues of the full row, prior to any choice of a
+source-zero section or projection.
+
+\begin{lemma}[A drift-balanced lift]\label{lem:lift}
+Suppose row $n$ has unit anchor $j$, and put $\alpha=T/S_n$.
+If $B\ge|\alpha|$ and $B\ge|r_i(T)|$ for every $i\ne j$, there is
+an integer lift of $T$ with
+\begin{equation}\label{eq:lift-bound}
+ |z_i|\le3B\ (i\ne j),\qquad
+ |z_j|\le|\alpha|+\frac{p_j}{e_j} V_n(B),\quad
+ V_n(B)=\sum_{i\ne j}\frac{e_i}{p_i}
+                  \min\{\ell_i/2,2B\}.
+\end{equation}
+Conversely any lift has norm at least
+$\max(|\alpha|,\max_{i\ne j}|r_i(T)|)$.
+\end{lemma}
+\begin{proof}
+For $i\ne j$, choose a representative in $r_i(T)+\ell_i\Z$
+nearest to $\alpha$. Its distance to $\alpha$ is at most $\ell_i/2$
+and at most $2B$, since $r_i(T)$ is itself an admissible comparison.
+The anchor value $z_j=(T-\sum_{i\ne j}A_i z_i)/A_j$ is integral:
+after division by $g_n$, its numerator is divisible by every
+nontrivial modulus in $R/\ell_j=A_j/g_n$. Subtract the real solution
+with all coordinates $\alpha$ to obtain \eqref{eq:lift-bound}.
+The lower bounds follow from the positive row coefficients and
+from its congruences. The proof also covers $\ell_j=1$.
+\end{proof}
+
+For \eqref{eq:family}, choose a unit anchor in each of the rows $x,b$.
+Assume that $b$ has a simple prime. List \emph{all} active nonanchor
+coordinates of the two rows; their moduli are denoted $p_i$.
+Their residues at targets $\Delta,C\Delta$ are $\kappa_i$.
+The list may contain zeros. Define
+\begin{align}
+ \mu&=\max\{\Delta/S_x,C\Delta/S_b\},&
+ \rho(u)&=\max_i|\langle u\kappa_i\rangle_{p_i}|,\nonumber\\
+ h_x(u)&=\max\{\mu u,\rho(u)\},&
+ G_x&=h_x(1),\qquad\tau_x=\min_{u\ge1}h_x(u),\label{eq:return}
+\end{align}
+where $\langle\cdot\rangle_p$ denotes the centered representative,
+and the maximum of an empty phase list is zero.
+Let $m_x(u)$ be the least original norm with $D_x=u\Delta$ and
+$D_b=uC\Delta$. These are positive image indices; sign symmetry
+gives $m(1,b)=\min_{u\ge1}m_x(u)$ and $\mpr(1,b)=m_x(1)$.
+The minimum defining $\tau_x$ exists because $\mu>0$.
+
+\begin{theorem}[Uniform original-coordinate comparison]\label{thm:comparison}
+Put
+\[
+ H_0=\hh(x-1)\hh(x+1)\hh(x^2+1),\quad
+ \sigma_n=\sum_{p\mid n}1/p,\quad
+ \vartheta_n=p_{j_n}/e_{j_n},\quad J=H_0(\sigma_b+1)/2,
+\]
+where $j_x,j_b$ are the chosen unit anchors, and set
+\begin{equation}\label{eq:Cx}
+ C_x=\max\{3,\ 1+\vartheta_x(2\sigma_x+J),\
+                    1+\vartheta_b(4\sigma_b+2+J)\}.
+\end{equation}
+For every positive integer $u$,
+\begin{equation}\label{eq:pointwise}
+ h_x(u)\le m_x(u)\le C_x h_x(u).
+\end{equation}
+In particular
+\begin{equation}\label{eq:compare}
+ \tau_x\le m(1,b)\le C_x\tau_x,\quad
+ G_x\le\mpr(1,b)\le C_xG_x,\quad
+ \frac{G_x}{C_x\tau_x}\le\frac{\mpr(1,b)}{m(1,b)}
+ \le\frac{C_xG_x}{\tau_x}.
+\end{equation}
+If $H_0\le K$, $\sigma_x+\sigma_b\le L$ and
+$\vartheta_x,\vartheta_b\le Y$, one may use the base-independent
+constant
+\begin{equation}\label{eq:C0}
+ C_0=\max\{3,\ 1+Y(4L+2+K(L+1)/2)\}.
+\end{equation}
+No bound on $\Delta$ or on the sum of moduli is assumed.
+\end{theorem}
+\begin{proof}
+Write $t=\log_2\Delta$ and $\lambda_b=\sum_{p\mid b}v_p(b)/p$.
+Equation~\eqref{eq:delta-local}, and $v_p(N)=1$ at odd primes
+dividing $N$ while $v_2(N)=2$, imply
+\begin{equation}\label{eq:lambda-est}
+ \lambda_b\le2\sigma_b+1+t/2.
+\end{equation}
+Indeed $\sum s_p\le t$ and $p\ge2$.
+Since $N\hh(x+1)\ge2(x+1)$, also $NH_0\ge2(x+1)$.
+As $b<x^N$ and $S_b=b\lambda_b$,
+\[
+ \mu\ge\frac{C\Delta}{S_b}>\frac{2\Delta}{H_0\lambda_b}.
+\]
+For $t\ge0$, $t/2^t\le1$ and $t^2/2^t\le2$; these follow by
+maximizing the two elementary real functions. Consequently
+\[
+ \frac{t}{2\mu}<\frac{H_0t(2\sigma_b+1+t/2)}{4\,2^t}
+ \le H_0(\sigma_b+1)/2=J
+\]
+when $t>0$, and the same non-strict bound holds at $t=0$.
+
+For the source row, split each $e_p$ into $1+(e_p-1)$.
+The first part contributes at most $2\sigma_xB$ to $V_x(B)$,
+and the second at most $\tfrac12\sum(e_p-1)\le t/2$, since
+$\hh(x)\le\Delta$. For the target row use
+$e_p=1+v_p(N)+s_p$: the first two parts contribute at most
+$(4\sigma_b+2)B$, including the prime $2$, and the last at most $t/2$.
+Thus, whenever $B\ge\mu$,
+\[
+ V_x(B)\le(2\sigma_x+J)B,\qquad
+ V_b(B)\le(4\sigma_b+2+J)B.
+\]
+Apply Lemma~\ref{lem:lift} to both rows at $B=h_x(u)\ge\mu$.
+Their coordinates are disjoint, and their targets use the same $u$.
+This proves \eqref{eq:pointwise}. Taking minima and dividing the
+appropriate upper and lower bounds gives \eqref{eq:compare}.
+The constant occurs once, not squared. Formula~\eqref{eq:C0} follows
+by enlarging the three parameters.
+\end{proof}
+
+\begin{theorem}[A common positive-density domain]\label{thm:domain}
+Fix $1<\alpha<1.3$. There are finite constants $K,L,Y$ such that
+a set of bases of positive lower density satisfies all of the following:
+\begin{enumerate}
+ \item $H_0\le K$ and $\sigma_x+\sigma_b\le L$;
+ \item $x$ and $b=x^{N(x)}-1$ each have a simple prime at most $Y$;
+ \item $x^2+1$ has a prime divisor $P>x^\alpha$.
+\end{enumerate}
+Hence \eqref{eq:compare} holds there with the same $C_0$.
+\end{theorem}
+The proof, with the analytic input and the order of parameter choices
+specified, is given in Appendix~\ref{app:domain}. It uses subtraction
+of exceptional sets of arbitrarily small upper density from a
+positive-density prime-factor set. It does not intersect unrelated
+positive-density sets without further information.
+
+\subsection{What an unbounded separation would require}
+On any domain with fixed $C_0$, the ratio $\mpr/m$ is unbounded along
+a sequence if and only if $G_x/\tau_x$ is. A sufficient and necessary
+return formulation along such a sequence is the existence of indices
+$u=u(x)$ with
+\begin{equation}\label{eq:required-return}
+ \mu_x u/G_x\longrightarrow0,\qquad
+ \max_i|\langle u\kappa_i(x)\rangle_{p_i(x)}|/G_x\longrightarrow0.
+\end{equation}
+All phases in this display belong to the same base and the same index.
+
+\begin{proposition}[First-wrap obstruction]\label{prop:wrap}
+For a nonzero centered phase $\theta=|\kappa|$ modulo $p$,
+\[
+ \tau_x\ge\min\{\theta,\mu p/(\theta+\mu)\}.
+\]
+If $G_x=\mu$, then $\tau_x=G_x$ and $\mpr/m\le C_x$.
+Otherwise let $p_*$ be the largest modulus among phases with
+$|\kappa_i|=G_x$. Then
+\begin{equation}\label{eq:wrap-capacity}
+ \frac{\mpr}{m}\le C_x\max\{1,G_x(G_x+\mu)/(\mu p_*)\}.
+\end{equation}
+\end{proposition}
+\begin{proof}
+If $h_x(u)=B<\theta$, the residue bound cannot hold before the first
+wrap: $u\theta\ge p-B$. Since $u\le B/\mu$, this forces
+$B\ge\mu p/(\theta+\mu)$. Otherwise $B\ge\theta$ already.
+Apply this to $\theta=G_x$, or use $h_x(u)\ge\mu u$ when $G_x=\mu$,
+and then \eqref{eq:compare}.
+\end{proof}
+In addition $\tau_x\ge\mu$, so unbounded separation with fixed $C_0$
+requires both $G_x/\mu$ and the second capacity in
+\eqref{eq:wrap-capacity} to become unbounded. These conditions are
+necessary, not sufficient.
+
+\section{Growing arithmetic dimension and sparse certificates}\label{sec:growth}
+This section concerns the family \eqref{eq:family}. Density statements
+use ordinary counting of integer bases: an exceptional set has size
+$o(X)$ up to $X$, even when the ambient domain itself is restricted.
+They do not assert independence of its modular phases.
+
+\begin{lemma}[Cyclotomic blocks]\label{lem:cyclo}
+Let $x\ge5$, $n=\rad_{\rm odd}(x+1)$, and $d\mid n$, $d\ge3$.
+If $(2d+1)^2>x+1$, each of the three orders $d,2d,4d$ is realized
+by a distinct active prime of $b=x^{4n}-1$. These primes are at least
+$2d+1,2d+1,4d+1$, respectively. An active prime means
+$p\nmid v_p(b)$.
+\end{lemma}
+\begin{proof}
+For an odd prime $p\nmid x$, put $f=\ord_p(x)$ and
+$a=v_p(x^f-1)$. The factorization into cyclotomic polynomials and
+the valuation formula $v_p(x^{ft}-1)=a+v_p(t)$ give
+\[
+ v_p(\Phi_m(x))=
+ \begin{cases}a,&m=f,\\1,&m=fp^j\ (j\ge1),\\0,&\text{otherwise}.
+ \end{cases}
+\]
+This follows by induction on the divisors in
+$x^m-1=\prod_{e\mid m}\Phi_e(x)$.
+For $p=2$, an index $m\ge3$ can contribute only when $m$ is a power
+of two, in which case the valuation is one. For the three indices
+here this does not occur. If $m=fp^j$, then $f\mid p-1$, so $p$
+is the largest prime factor of $m$. Thus the product of the
+nonprimitive prime contributions to $\Phi_m(x)$ is at most $m$.
+But the root factorization gives
+\[
+ (x-1)^{\varphi(m)}\le\Phi_m(x)\le(x+1)^{\varphi(m)}.
+\]
+For $m=d,2d$, $\varphi(m)\ge2$ and $(x-1)^2>2(x+1)$;
+for $m=4d$, $\varphi(m)\ge4$ and $(x-1)^4>4(x+1)$.
+Since $d\le x+1$, these bounds exceed $m$ and force a primitive
+prime with exact order $m$.
+
+Such a prime satisfies $p\equiv1\pmod m$; parity improves the
+lower bound at odd order $d$ to $2d+1$. It does not divide $N$:
+odd primes dividing $N$ divide $x+1$ and have order at most two.
+Its exponent in $b$ is therefore its exponent in $\Phi_m(x)$.
+In all three cases $\varphi(m)<p/2$, while $p^2>x+1$; hence
+$(x+1)^{\varphi(m)}<p^p$. Its positive exponent is less than $p$,
+so it is active. Exact orders make all primes from distinct indices
+different; odd $d$ also separates the three types of index.
+\end{proof}
+
+\begin{theorem}[Growing active rank in density]\label{thm:rank}
+Fix $K\ge1$, $0<\beta<1$ and an integer $q\ge1$. Outside $o(X)$
+exceptions among $x\le X$ with $H_0(x)\le K$, the row of $b$
+has at least $q$ distinct active primes greater than $x^\beta$.
+After deleting any fixed number of coordinates, the product of
+remaining active moduli exceeds every fixed power of $x$ in the
+same density sense.
+\end{theorem}
+\begin{proof}
+For fixed $Y$, let $Z_Y(x)$ count the odd primes $p\le Y$ dividing
+$x+1$, and let $A_Y=\sum_{3\le p\le Y}1/p$.
+CRT over a fixed finite set gives mean $A_Y$ and variance at most
+$A_Y$ in the limiting density. Since $A_Y\to\infty$, for each fixed
+$s$ the upper density of $Z_Y<s$ is at most
+$A_Y/(A_Y-s)^2$, tending to zero with $Y$.
+If $Z_Y\ge s$, choose $s$ of those primes and let their product be
+$Q_0\mid Q_Y=\prod_{3\le p\le Y}p$. Since
+$n\ge(x+1)/(2K)$, every $t\mid Q_0$ gives a distinct divisor
+$d=n/t\ge(x+1)/(2KQ_Y)$.
+With $K,Y$ fixed, for sufficiently large $x$ these $2^s$ divisors
+satisfy the previous lemma and give $3\cdot2^s$ active primes
+greater than $x^\beta$. First choose $s$ for the requested $q$,
+then let $Y$ grow to make the upper exceptional density arbitrarily
+small. This proves a zero-density exception. For the product claim
+choose $q$ larger than the number removed plus the requested power
+divided by $\beta$. No growing-$q$ rate is asserted.
+\end{proof}
+
+\begin{lemma}[Simple phases at feasible short budgets]\label{lem:short}
+Fix $K,Y$, $0\le\theta<\beta<2$ and $q\ge1$. Outside $o(X)$
+exceptions among bases $x\le X$ with $H_0\le K$ and simple anchors
+at most $Y$ in both rows, the following alternative holds:
+either there are no real budgets $B$ and integer horizons $H\ge1$
+with $\mu H\le B\le x^\theta$, or the global phase list contains at
+least $q$ distinct nonzero simple nonanchor phases with modulus
+$p>x^\beta$. Each has $p\nmid\Delta$ and $p>2B$ for all large $x$.
+\end{lemma}
+\begin{proof}
+We give the size estimates to specify the quantifiers. First
+\begin{equation}\label{eq:logdrift}
+ \lambda_b<4\log_2(2x\Delta),\qquad
+ \mu>\frac{\Delta}{2K\log_2(2x\Delta)}
+       \ge\frac1{2K\log_2(2x)}.
+\end{equation}
+Indeed $\hh(b)=\prod p^{v_p(N)+s_p}$ divides $N H$, so is at most
+$N\Delta$. Split $\lambda_b=\sigma_b+\sum(e_p-1)/p$.
+With $A=\log_2 b$, primes $p\le A$ contribute at most
+$1+\log A$ to $\sigma_b$, and those above $A$ contribute at most
+$\omega(b)/A\le1$; also
+$\sum(e_p-1)/p\le\tfrac12\log_2(N\Delta)$.
+Using $N\le4(x+1)$ gives the first (loose) bound for $x\ge5$.
+The earlier lower bound $\mu>2\Delta/(K\lambda_b)$ proves the
+second. The last inequality follows from
+$\log_2(2x\Delta)\le\Delta\log_2(2x)$ for $\Delta\ge1$.
+Thus feasibility forces $\Delta<x^\gamma$ eventually for every
+fixed $\gamma>\theta$: otherwise the increasing function
+$t/\log_2(2xt)$ at $t=x^\gamma$ would contradict $\mu\le x^\theta$.
+
+We strengthen the cyclotomic size argument on the domain
+$\Delta\le x^D$, for any fixed $D$. Choose the large orders
+$m=d,2d,4d$ in the proof of Theorem~\ref{thm:rank}, so $m\gg x$
+with constants fixed before $x$ grows. Suppose all primitive primes
+of $\Phi_m(x)$ are at most $Z=x^\beta$.
+There are at most $\lfloor(Z-1)/m\rfloor$ such primes, since each
+is $1\pmod m$. Their repeated parts divide $H\mid\Delta$,
+and the nonprimitive part is at most $m$. Hence
+\begin{equation}\label{eq:block-size}
+ (x-1)^{\varphi(m)}\le\Phi_m(x)
+       \le m\Delta Z^{\lfloor(Z-1)/m\rfloor}.
+\end{equation}
+For every $\varepsilon>0$ one has
+$\varphi(m)\ge c_\varepsilon m^{1-\varepsilon}$: in the product
+for $\varphi(m)m^{\varepsilon-1}$, only finitely many primes can
+give a factor smaller than one. Choose $\varepsilon<2-\beta$.
+The logarithm of the left side of \eqref{eq:block-size} is
+$\gg x^{1-\varepsilon}\log x$, whereas that of the right side is
+$O(\log x+x^{\beta-1}\log x)$, a contradiction.
+Thus every one of arbitrarily many fixed large orders supplies a
+prime $p>x^\beta$. At most $\lfloor D/\beta\rfloor$ of these
+distinct primes can be repeated, because then each divides
+$H\mid\Delta\le x^D$. Start with enough orders to leave $q$ simple
+ones. The fixed-$Y$ CRT argument again makes the exceptional count
+$o(X)$, without asserting any density for the feasible branch.
+
+Choose $\theta<\gamma<\beta$ and use feasibility to put
+$\Delta<x^\gamma$. At the remaining simple primes, $p\nmid\Delta$
+and eventually $p>Y,2B$. To check that their \emph{global} phase is
+nonzero, note that with simple primes in both rows,
+\[
+ \Delta=\epsilon_0 g_xg_b/N,\qquad
+ C\Delta/g_b=\epsilon_0g_xx^{N-1},\qquad
+ \epsilon_0=\begin{cases}1,&x\text{ odd},\\4,&x\text{ even}.
+ \end{cases}
+\]
+Here $g_x$ is supported on $x$, and
+$\gcd(g_b,C)=N/\epsilon_0$ by the local valuations in
+Proposition~\ref{prop:radical-image}. The right side is a unit at
+each new prime $p$, as is its normalized row coefficient. Its
+residue \eqref{eq:global-residue} is therefore nonzero.
+\end{proof}
+
+\subsection{What positivity can certify}
+Let a finite list of phases be $(p_i,\kappa_i)$, let $H\ge1$,
+$M=H+1$, and choose integer lengths $1\le L_i\le p_i$.
+On $\Z/p_i\Z$ set
+\[
+ f_i(z)=\frac1{L_i}\#\{(a,b)\in\{0,\ldots,L_i-1\}^2:a-b=z\},
+ \quad V_L(t)=\left|\frac1L\sum_{a=0}^{L-1}e^{2\pi iat}\right|^2,
+ \quad D_i=L_i/p_i.
+\]
+Thus $0\le f_i\le1$ and $f_i(0)=1$.
+
+\begin{proposition}[Positive Fourier identity and finite caps]\label{prop:spectrum}
+The energy
+\begin{align}
+ \mathcal E&=\frac1M\sum_{a,b=0}^H\prod_i f_i((a-b)\kappa_i)\nonumber\\
+ &=M\prod_iD_i\sum_{m_i\bmod p_i}
+ V_M\!\left(\sum_i\frac{m_i\kappa_i}{p_i}\right)
+             \prod_iV_{L_i}(m_i/p_i)\label{eq:energy}
+\end{align}
+has nonnegative summands and diagonal contribution one in its first
+expression. Therefore a lower certificate $\mathcal E>1$ yields
+some $1\le u\le H$ with
+$|\langle u\kappa_i\rangle_{p_i}|\le L_i-1$ for every $i$.
+For any $q$ designated coordinates with $D_i\le\delta$, the total
+mass of all frequency terms involving at most $r\le q$ of these
+coordinates is at most
+\begin{equation}\label{eq:support-cap}
+ M\binom qr\delta^{q-r}.
+\end{equation}
+Any $T$ individually listed distinct frequency terms have mass at most
+\begin{equation}\label{eq:term-cap}
+ TM\delta^q.
+\end{equation}
+These bounds allow arbitrary frequencies in the undesignated coordinates.
+\end{proposition}
+\begin{proof}
+Finite Fourier inversion gives $\widehat f_i(m)=D_iV_{L_i}(m/p_i)$.
+The normalized sum over $a,b$ gives $M V_M$ and proves the identity.
+If the energy exceeds its diagonal, an off-diagonal product is positive,
+so each difference is represented by two interval elements, giving
+the claimed centered bound.
+
+Fix a subset $J$ of $r$ designated coordinates and set the other
+$q-r$ frequencies to zero. Removing their factors $D_i$ leaves the
+full Fourier energy of the remaining coordinates, at most $M$ by
+the time expression and $f_i\le1$. Cover all supports of size at
+most $r$ by the $\binom qr$ choices of $J$ and use positivity;
+this proves \eqref{eq:support-cap}, even though the cover can overlap.
+For a single term $V_L\le1$ and each undesignated $D_i\le1$,
+so it is at most $M\delta^q$. Summing $T$ terms proves the second cap.
+\end{proof}
+
+\begin{theorem}[A restricted spectral-certificate barrier]\label{thm:barrier}
+Fix $K,Y$, $0\le\theta<2$, an interaction order $r\ge0$ and
+$c\ge0$. Consider bases with $H_0\le K$ and simple anchors at most
+$Y$, and feasible budgets $\mu H\le B\le x^\theta$, $H\ge1$.
+Use all global phases and $L_i=\min(p_i,\lfloor B\rfloor+1)$.
+Outside $o(X)$ bases up to $X$, uniformly over these feasible choices,
+neither the complete collection of terms of fixed interaction order
+$r$ nor any at most $x^c$ individually listed distinct terms has mass
+exceeding one in \eqref{eq:energy}; in fact their masses tend to zero.
+For the first assertion it suffices to count interactions within an
+appropriate fixed number of designated large coordinates.
+\end{theorem}
+\begin{proof}
+If $\theta=0$, \eqref{eq:logdrift} still gives the following bound;
+otherwise the same calculation applies. Fix $\theta<\beta<2$.
+By Lemma~\ref{lem:short} choose any required fixed number $q$ of
+nonzero simple phases $p_i>x^\beta$, outside $o(X)$ exceptions.
+Then $D_i\le2x^{\theta-\beta}$ and
+$M=O_K(x^\theta\log x)$ by \eqref{eq:logdrift}.
+Choose $q>r+\theta/(\beta-\theta)$ in \eqref{eq:support-cap},
+and $q>(c+\theta)/(\beta-\theta)$ in \eqref{eq:term-cap}.
+Both bounds tend to zero. The number $q$ is fixed before the density
+limit, and the bounds use only the displayed budget inequalities,
+so are uniform in $B,H$.
+\end{proof}
+This is a limit on two specified positive-sum certificates. It is
+not an upper bound for the full energy, an absence-of-returns theorem,
+or a general algorithmic lower bound. It leaves open exceptional bases,
+budgets $o(G_x)$ larger than a fixed subquadratic scale, and collective
+frequency mass with increasing support. Lemma~\ref{lem:short} does
+not assert that feasible subquadratic budgets have positive density.
+
+\section{Finite certificates in the original coordinates}\label{sec:finite}
+The ordinary proofs above establish their universal statements.
+The finite results in this section additionally use supplied exact data
+and a short standard-library verifier. No floating-point optimization,
+probable-prime declaration or assumed factorization is used in their
+acceptance checks.
+
+\begin{theorem}[Two variable-base minima]\label{thm:finite}
+For $b=x^{60}-1$, with the original coordinates and primitive meaning
+of \eqref{eq:minima}, the following minima hold:
+\[
+\begin{array}{c|r|r|r|r}
+ x&\Delta&u\text{ at a useful minimizer}&m(1,b)&\mpr(1,b)\\\hline
+14&1&331476352&1054020192&311136274396595031\\
+44&36&1807554653&70930543252&92514302310809204735
+\end{array}
+\]
+Here $N(x)=60$ in both cases, so both triples satisfy
+$\rad(xb)<x^{60}$. The ratios are approximately
+$2.95\cdot10^8$ and $1.30\cdot10^9$, respectively.
+\end{theorem}
+\begin{proof}[Certificate verification]
+The file \path{companion/data/exact_minima.json} gives complete
+factorizations, row anchors, integer vectors and lattice bases.
+Its prime certificates are in \path{companion/data/minima_primes.json}.
+The program
+\texttt{companion/verify\_finite.py} performs the following exact
+certificate proof, whose exhaustiveness we specify here.
+
+Each prime $p>2$ is certified by a complete factorization of $p-1$
+into previously certified primes and an integer $a$ such that
+$a^{p-1}=1\pmod p$ and
+$\gcd(a^{(p-1)/r}-1,p)=1$ for every prime $r\mid p-1$.
+For any prime divisor $s\mid p$, these conditions force the order
+of $a\pmod s$ to be $p-1$, so $s\ge p$ and $p$ is prime.
+Multiplication then verifies each whole factorization and reconstructs
+all original rows, their image and the global phases.
+
+For a proposed lower budget $B=m-1$, a possible positive index obeys
+$1\le u\le\lfloor B/\mu\rfloor$ and every centered phase is at most
+$B$. Choose the specified pivot $(p,\kappa)$ with $p>2B$.
+A displayed integer basis $(q,r),(s,t)$ has determinant $p$ and lies
+in the congruence lattice $z=\kappa u\pmod p$; it is therefore a
+basis of the whole lattice. Write
+$(u,z)=a(q,r)+v(s,t)$. The inverse coordinate
+$v=(qz-ru)/p$ has its extrema at the four rectangle corners
+$1\le u\le\lfloor B/\mu\rfloor$, $-B\le z\le B$.
+Enumerating every integer $v$ in this interval and the corresponding
+complete interval of $a$ lists every possible index. Every remaining
+global phase is then tested, not just the pivot phase.
+
+For $x=44$ no index survives. For $x=14$ the sole survivor is
+$u=331476352$. Proposition~\ref{prop:normal}, applied to both
+original cubes, rejects it: the target-row carry is $1420612936$,
+whereas the upper possible carry is $1420612934$, a deficit of two.
+In these two inputs the normalized weights are only one or two.
+Their interval sum is the whole interval from its lower to upper
+endpoint if any weight-one coordinate is flexible; otherwise it is
+the corresponding parity class. This checks the carries exhaustively.
+The displayed vectors attain $m$ at the asserted indices.
+
+At $u=1$, the computed lower bound $\lceil G_x\rceil$ equals the
+listed $\mpr$ in each case, and the supplied primitive vectors attain
+it. All row equations, coordinates, norms and image values are checked
+as integers. These prove both minima, not only upper bounds.
+\end{proof}
+
+For $x=14$, the winning index is $4\pmod7$. A section forcing the
+nonanchor source coordinate to zero would require $u=0\pmod7$ and
+miss it. The return minimum also differs from the original minimum:
+$\lceil\tau_{14}\rceil=m-5$, while $\tau_{44}=m$.
+These are concrete reasons to retain the source phases and the final
+integer carry when using a reduced return problem.
+
+\subsection{Finite mixed-frequency certificates}
+Two companion benchmarks illustrate the role of mixed frequencies
+in Proposition~\ref{prop:spectrum}. The variable-base case
+$x=6,N=28$ at return budget $B=11000,H=1307$ has
+\[
+ \mathcal E=3440888017/2931421802>1,
+ \qquad\mathcal E_{\rm axes}=41388640220693/61401273111326<1.
+\]
+The fixed-power case $k=53$, on its specified normalized return
+section at $B=2000000,H=400000$, has
+\[
+ \begin{aligned}
+ \mathcal E&=\frac{2073236796034760609}{1600005600004400001}>1,\\
+ \mathcal E_{\rm axes}
+   &=\frac{91767038289310419629485}{156111755376230439915667}<1.
+ \end{aligned}
+\]
+The first uses 23 explicit frequency terms, 20 mixed; the second
+uses 11, 10 mixed. Their certified lower scores exceed $1281/1250$
+and $5249/5000$. The axis mass means all terms supported on either
+of the two restrictive axes, with the zero term counted once.
+All other phases are automatically paid by the declared budget.
+The data include original-coordinate witnesses and their separate
+norm bounds; a return budget is not identified with an original norm.
+
+For reproducibility, the verifier both sums the rational time-domain
+energy and checks rational lower bounds for the selected frequencies.
+If $a=\operatorname{dist}(t,\Z)$, $d=\operatorname{dist}(Lt,\Z)$
+and $a\ne0$, a lower bound for $V_L(t)$ is the maximum of zero,
+\[
+ 1-\frac{10}{3}(L^2-1)a^2,\qquad
+ \left[\frac{d}{La}
+ \left(1-\frac53d^2+\frac56d^4-\frac{25}{126}d^6\right)\right]^2.
+\]
+At $a=0$ the value is one. The first estimate follows from the
+cosine lower bound in the squared exponential sum and $\pi^2<10$.
+For the second use $\sin(\pi a)\le\pi a$ and the alternating
+seventh-degree sine lower bound on $0\le\pi d\le\pi/2$;
+its bracket decreases with $\pi^2$ on this range, so substitution
+of $10$ gives the displayed smaller positive polynomial.
+These finite successes concern two restrictive phases. They do not
+contradict the growing-dimensional statement of Theorem~\ref{thm:barrier}.
+
+\section{A compact exact certificate for \texorpdfstring{\(2+3^{47}\)}{2 plus 3 to the power 47}}\label{sec:k47}
+The large example can be checked without enumerating a large cube.
+Its certificate consists of a factorization, a two-dimensional lattice
+basis, a small affine deficit and a primitive congruence.
+
+\begin{theorem}\label{thm:k47}
+For \(a=2,b=3^{47}\), in the norm of \eqref{eq:minima},
+\[
+ m=6493223,\qquad \mpr=1358381707976.
+\]
+There are exactly twenty vectors attaining \(m\), with Wronskian
+values \(\pm133972\Dgen\).
+All vectors attaining \(\mpr\) with \(W=\Dgen\) are parametrized in
+\eqref{eq:primitive-family} below.
+This is a radical-small triple:
+\(\rad(abc)/c=6/343\).
+\end{theorem}
+
+\subsection{Model and integral projected coordinates}
+Use the factorization
+\begin{equation}\label{eq:k47-factor}
+ 3^{47}+2=7^4\cdot11\cdot59\cdot4691\cdot3637447066471.
+\end{equation}
+Each displayed factor is prime; the companion verifies this by exhaustive
+trial division up to its integer square root, and verifies the product.
+Put
+\[
+ \begin{gathered}
+ P=3637447066471,\quad d=7\cdot11\cdot59\cdot4691=21311213,\quad h=343,\\
+ T=3^{46}=8862938119652501095929,\qquad c=hdP=3T+2,\\
+ L=d+2\left(4d/7+d/11+d/59+d/4691\right)=50273151.
+ \end{gathered}
+\]
+The coordinate order is \((2,3,7,11,59,4691,P)\).
+The rows are \(F=x_2+47Tx_3-D_c\) and
+\(W=T(94x_3-3x_2)\).
+Since \(g_c=h\), formula~\eqref{eq:image} gives \(\Dgen=Th\).
+
+For any integral additive vector set
+\[
+ j=(3x_2-94x_3)/h,\qquad v=x_P.
+\]
+These are integral: reducing \(3F=0\) modulo \(h\), and using
+\(3T\equiv-2\pmod h\), proves the divisibility in \(j\).
+Elimination gives \(W=-Thj\) and
+\begin{equation}\label{eq:projected}
+ j\equiv3dv\pmod P,\qquad
+ |v|\le B,\qquad |Tj+2dv|\le PLB
+\end{equation}
+whenever \(\norm{x}\le B\).
+Indeed,
+\(Tj/(dP)=x_2-2(4x_7/7+x_{11}/11+x_{59}/59+x_{4691}/4691)-2v/P\).
+Only necessity of these real inequalities is used in the exclusion.
+
+\subsection{Only one useful projected pair at the proposed budget}
+Let \(B=6493223\) and, by negation, assume \(j>0\).
+The congruence lattice
+\(\Gamma=\{(j,v)\in\Z^2:j\equiv3dv\pmod P\}\) has index \(P\).
+The columns
+\[
+ u=(133972,1649929),\qquad z=(-2158411,568941)
+\]
+belong to \(\Gamma\) and have determinant \(P\), hence form a basis.
+Their values of \((3dv-j)/P\) are \(29\) and \(10\).
+
+Equation~\eqref{eq:projected} implies
+\[
+ 1\le j\le\left\lfloor\frac{(PL+2d)B}{T}\right\rfloor=133972.
+\]
+If \((j,v)=\alpha u+\beta z\), then
+\[
+ \beta=\frac{133972v-1649929j}{P},\qquad
+ |\beta|\le\frac{133972(B+1649929)}P<1.
+\]
+Therefore \(\beta=0\) and \(\alpha=1\).
+Every useful vector of norm at most \(B\), up to negation, projects to
+\(u\). The same cover applies to every smaller budget.
+
+\subsection{The affine phase and all twenty minimizers}
+Write \((p_i)=(7,11,59,4691)\) and \((e_i)=(4,1,1,1)\).
+For a projected pair define
+\[
+ t=\frac{3dv-j}{P},\qquad
+ r_i\equiv-t\bigl(3e_i(d/p_i)\bigr)^{-1}\pmod{p_i},
+ \quad 0\le r_i<p_i.
+\]
+Substitution in \(F=0\) reduces it to
+\[
+ 47x_3=H_0+3\sum_i e_i y_i,\qquad
+ H_0=\frac{t+\sum_i3e_i(d/p_i)r_i}{d},\qquad x_{p_i}=r_i+p_i y_i.
+\]
+The residues make \(H_0\) integral.
+Choose \(0\le x_0<3\) with \(47x_0\equiv H_0\pmod3\), and put
+\(\theta=(47x_0-H_0)/3\),
+\(C_0=(hj+94x_0)/3\).
+This last number is integral: modulo three, \(dP\equiv-1\) and
+\(Pt\equiv-j\) give \(H_0\equiv j\), while
+\(47x_0\equiv H_0\) gives \(x_0\equiv2j\).
+Every lift is uniquely
+\begin{equation}\label{eq:k47-affine}
+ x_2=C_0+94n,\quad x_3=x_0+3n,\quad
+ x_{p_i}=r_i+p_i y_i,\quad x_P=v,\quad
+ 4y_7+y_{11}+y_{59}+y_{4691}=\theta+47n.
+\end{equation}
+The derivation reverses, proving sufficiency as well.
+
+For \(u\), the data are
+\[
+ t=29,\quad (r_i)=(5,2,47,2335),\quad H_0=13,\quad
+ x_0=2,\quad \theta=27,\quad C_0=15317528.
+\]
+Let
+\[
+ \ell_i(B)=\left\lceil\frac{-B-r_i}{p_i}\right\rceil,\quad
+ U_i(B)=\left\lfloor\frac{B-r_i}{p_i}\right\rfloor,\quad
+ \mathcal L(B)=\sum_i e_i\ell_i(B),\quad
+ N_+(B)=\left\lfloor\frac{B-C_0}{94}\right\rfloor.
+\]
+Every bounded lift must have
+\(\mathcal L(B)\le27+47n\) and \(n\le N_+(B)\).
+The exact first-contact calculation is
+\[
+\begin{array}{r|r|r|r}
+ \text{budget}&\mathcal L&N_+&27+47N_+\\ \hline
+ 6493222&-4412144&-93876&-4412145\\
+ 6493223&-4412148&-93876&-4412145
+\end{array}
+\]
+The first row excludes every lift at the preceding budget.
+At \(B=6493223\) the lower bounds are
+\[
+ (\ell_i)=(-927604,-590293,-110055,-1384).
+\]
+They and the source bound force \(n=-93876\).
+Putting \(y_i=\ell_i+d_i\) leaves
+\[
+ 4d_7+d_{11}+d_{59}+d_{4691}=3,\qquad d_i\ge0.
+\]
+All upper caps exceed three. Hence \(d_7=0\), and the remaining
+three deficits are all nonnegative compositions of three.
+There are \(\binom52=10\). The resulting vectors are
+\begin{equation}\label{eq:20}
+ \begin{aligned}
+ x_2&=6493184,&x_3&=-281626,&x_7&=-6493223,\\
+ x_{11}&=-6493221+11d_{11},&
+ x_{59}&=-6493198+59d_{59},\\
+ x_{4691}&=-6490009+4691d_{4691},&
+ x_P&=1649929,
+ \end{aligned}
+\end{equation}
+where \(d_{11}+d_{59}+d_{4691}=3\).
+Each satisfies the original rows and has norm \(B\).
+Their negatives give the other ten; the two lists are disjoint because
+\(W\ne0\). The complete projected cover and preceding-budget exclusion
+prove the useful minimum and completeness of this list.
+
+\subsection{The primitive minimum and its entire optimizer fibre}
+First use \(j=1\), so \(W=-\Dgen\).
+The congruence \(3dv\equiv1\pmod P\) has centered representative
+\[
+ v_0=-1358381707976,\qquad 2|v_0|<P.
+\]
+Every such vector has norm at least \(M=|v_0|\); within budget \(M\)
+its pivot is necessarily \(v_0\).
+The negative primitive fibre has
+\[
+ t=-23875615,\quad(r_i)=(2,8,25,1937),\quad
+ H_0=7,\quad x_0=2,\quad\theta=29,\quad C_0=177.
+\]
+In particular
+\[
+ (-177,-2,-2,-327,-25,-1937,1358381707976)
+\]
+has \(F=0\), \(W=\Dgen\) and norm \(M\), proving the primitive minimum.
+
+For completeness, all positive primitive minimizers are precisely the
+negatives of
+\begin{equation}\label{eq:primitive-family}
+ \begin{gathered}
+ (177+94n,\ 2+3n,\ 2+7y_7,\ 8+11y_{11},\
+     25+59y_{59},\ 1937+4691y_{4691},\ -M),\\
+ 4y_7+y_{11}+y_{59}+y_{4691}=29+47n,\qquad
+ n,y_7,y_{11},y_{59},y_{4691}\in\Z,
+ \end{gathered}
+\end{equation}
+subject to absolute value at most \(M\) in each coordinate.
+This is a bounded affine parametrization, not an enumeration.
+Its completeness follows from the unique pivot representative and
+\eqref{eq:k47-affine}. The last coordinate ensures every admitted vector
+has norm exactly \(M\).
+Finally \eqref{eq:k47-factor} gives \(\rad(abc)/c=6/343\).
+The ratio of the two costs exceeds \(200000\), but a single example,
+however large, proves no unboundedness in a restricted infinite family.
+
+\section{Open questions, scope and reproducibility}\label{sec:limits}
+\begin{question}\label{q:power}
+Is $\mpr(2,3^k)/m(2,3^k)$ unbounded as $k$ ranges over positive integers?
+\end{question}
+\begin{question}\label{q:radical}
+Is $\mpr(a,b)/m(a,b)$ unbounded over coprime triples $a+b=c$ with
+$\rad(abc)<c$?
+\end{question}
+Neither question is settled here. Theorem~\ref{thm:main} supplies
+unbounded separation in a different family. The fixed-power question
+has the necessary simple-prime and non-Wieferich consequence in
+Theorem~\ref{thm:fixed}. Conditional non-Wieferich results, such as
+\cite[Theorems 1.2--1.4 in the cited arXiv version]{FelliniMurty},
+do not give that consequence unconditionally or supply the returns.
+For the variable-base route to Question~\ref{q:radical},
+\eqref{eq:required-return} is the precise remaining existence target.
+The common domain and the comparison theorem remove a lifting
+obstruction but do not provide this sequence.
+
+The arithmetic growth and Fourier bounds identify limitations of a
+specific certificate format. Larger finite records alone do not prove
+an infinite gap; an independent supply of simultaneous returns is
+still needed. The bounds leave open rare bases, other budget scales
+and collective frequency arguments.
+In particular no small-derivative estimate uniform over all triples,
+and no advance toward the $abc$ conjecture, follows from these results.
+
+The accompanying repository has a ten-minute reading path and a
+standard-library replay in \texttt{README\_REVIEWER.md} and
+\texttt{REPRODUCE.md}. Its verifier checks the $k=47$ factorization,
+lattice reduction, optimizer count and primitive fibre; the two
+variable-base minima and two finite spectral certificates; and literal
+small-cube controls for the prime-family theorem. Mutated certificates
+are rejected, and acceptance tests use explicit exceptions so that
+Python's optimized mode does not disable them. Such finite checks
+support the indicated computations. The universal and density results
+rest on the written proofs and the explicitly attributed analytic input.
+
+\paragraph{AI assistance.}
+AI tools were used under the author's direction for mathematical
+exploration, source comparison, proof criticism, drafting, exact
+computations and repository preparation. The accompanying
+\texttt{AI\_USE.md} describes their scope. AI cross-review is not
+independent human peer review. The human author is responsible for
+the mathematics, attribution and any decision to publish.
+
+\appendix
+\section{Proof of the common density domain}\label{app:domain}
+We prove Theorem~\ref{thm:domain}. All auxiliary bounds are fixed
+before the base tends to infinity.
+
+\subsection{The analytic input and its counting consequence}
+We use the weighted estimate in Pascadi \cite[Sections 6.1 and 6.3,
+Notations 20 and 23, (6.20) and the concluding strict margin]{Pascadi},
+with these locators referring to the cited arXiv version.
+For a fixed nonnegative nonzero smooth weight at most one on $[1,2]$,
+the full log-prime mass has a main term proportional to $X\log X$,
+and its truncation at a constant multiple of $X^{1.3}$ misses a fixed
+positive proportion. We import that estimate and its analytic and
+numerical ingredients. The following counting consequence is a
+deduction from the weighted proof, not from bare infinitude.
+
+Each integer $x\le4X$ contributes at most
+$\sum_{p\mid x^2+1}\log p\le\log(x^2+1)\le3\log X$ for large $X$.
+For fixed $1<\alpha<1.3$, the prime threshold exceeds $(4X)^\alpha$
+eventually. Thus some $\eta_0>0$ satisfies, for every sufficiently
+large $X$,
+\begin{equation}\label{eq:density-input}
+ \#\{x\in[X,4X]:P^+(x^2+1)>x^\alpha\}\ge\eta_0 X.
+\end{equation}
+No restriction on progressions, on prime bases, or on their modular
+phase distribution is imported.
+
+\subsection{Small exceptional sets for cosocles and anchors}
+For an odd prime $p$, the condition that $p^2$ divide one of
+$x,x-1,x+1,x^2+1$ occupies at most five classes modulo $p^2$.
+The quadratic has at most two roots, each with a unique lift.
+For $x\le Z$, such a prime is at most $Z+1$; therefore the number
+of bases with a repeated prime $p>T$ in any of the four values is at most
+\begin{equation}\label{eq:square-tail}
+ 5Z\sum_{m>T}m^{-2}+5\pi(Z+1)\le5Z/T+5\pi(Z+1).
+\end{equation}
+Here $\pi(Z)=o(Z)$ suffices. One elementary proof fixes a product $Q$
+of small primes: apart from finitely many exceptions primes are coprime
+to $Q$, so the upper density is at most $\varphi(Q)/Q$.
+This tends to zero, since the inverse Euler product contains growing
+partial harmonic sums. No prime number theorem is needed.
+
+For fixed $T$, exclusion of divisibility of any of the four values by
+$p^{E+1}$ for $p\le T$ has upper density at most
+$\sum_{p\le T}5/p^{E+1}$. This is also a valid bound at $2$ when
+$E\ge1$, since the quadratic has no root modulo four.
+Given $\varepsilon>0$, choose $T$ and then $E$ to make the sum
+of these two upper-density bounds less than $\varepsilon$.
+Outside the exclusions each cosocle is bounded by
+$B_0=\prod_{p\le T}p^{E-1}$, and so $H_0\le B_0^3$.
+The degree-two upper bound on $p$ in \eqref{eq:square-tail} is
+essential; this argument is not applied to the growing-degree $b$.
+
+For fixed $Y$, CRT gives exact natural densities for the absence
+of small simple primes in $x$, and in $x^2+1$ with $p\equiv1\pmod4$:
+\begin{equation}\label{eq:anchor-density}
+ a(Y)=\prod_{p\le Y}\left(1-\frac{p-1}{p^2}\right),\qquad
+ b(Y)=\prod_{\substack{p\le Y\\p\equiv1\ (4)}}
+                 \left(1-\frac{2(p-1)}{p^2}\right).
+\end{equation}
+For the second formula, above each of the two roots modulo $p$
+there are $p-1$ lifts of valuation exactly one. Both products tend
+to zero. For clarity the needed divergence in the class $1\pmod4$
+can be proved by the Euler products, for $s>1$:
+\[
+ \log\zeta(s)+\log L(s,\chi_4)
+       =2\sum_{p\equiv1\ (4)}p^{-s}+O(1),\qquad s\downarrow1.
+\]
+The higher prime powers contribute a bounded term. The alternating
+series $L(s,\chi_4)=1-3^{-s}+5^{-s}-\cdots$ converges uniformly for
+$s\ge1$ and lies between $2/3$ and $1$, so its logarithm is bounded.
+The divergence of $\zeta(s)$ proves $\sum_{p\equiv1\ (4)}1/p=\infty$.
+Use $\log(1-t)\le-t$ in \eqref{eq:anchor-density}.
+Independence of the two anchor events is not needed.
+
+\subsection{All large primes paid by reciprocal mass}
+We claim, for integer $X\ge2$,
+\begin{equation}\label{eq:reciprocal-mean}
+ \sum_{x=2}^X\sigma_b<20X,\qquad
+ \sum_{x=2}^X(\sigma_x+\sigma_b)<21X.
+\end{equation}
+For an odd prime $p\le X$, put
+\[
+ R_p=\rad_{\rm odd}(p-1),\quad
+ c_p=\begin{cases}2,&p\equiv3\ (4),\\4,&p\equiv1\ (4),\end{cases}
+ \quad m_p=c_pR_p,\quad
+ \delta_p=\frac{c_p}{p}\prod_{\ell\mid R_p}(2-1/\ell).
+\]
+The condition $p\mid b$ says that $d=\ord_p(x)$ divides $N(x)$.
+It is equivalent to $d=2^j r\mid m_p$ with $r$ odd squarefree and
+$r\mid x+1$. For each such $d$, the $\varphi(d)$ order-$d$ classes
+modulo $p$ combine with $x=-1\pmod r$ into as many progressions
+modulo $pr$. Summing gives $\sum_{d\mid m_p}\varphi(d)=m_p$
+progressions and total density
+\[
+ \frac1p\sum_j\varphi(2^j)\sum_{r\mid R_p}\frac{\varphi(r)}r
+   =\delta_p.
+\]
+Thus $\#\{2\le x\le X:p\mid b\}\le X\delta_p+m_p$.
+Since $m_p\mid p-1$ and
+$\prod_{\ell\mid R_p}(2-1/\ell)\le2^{\omega(p-1)}
+\le2\sqrt{p-1}$, one has $\delta_p/p<8p^{-3/2}$.
+The sum of the weighted counts for odd $p\le X$ is less than
+$8X\sum_{n\ge3}n^{-3/2}+\pi(X)<13X$; the prime $2$ adds at most
+$X/2$. For primes $p>X$, on each individual base
+\[
+ \sum_{\substack{p\mid b\\p>X}}\frac1p
+ \le\frac{\log b}{X\log X}
+ <\frac{4(x+1)\log x}{X\log X}\le6.
+\]
+This proves the first bound. Finally
+$\sum_{x=2}^X\sigma_x=\sum_{p\le X}\lfloor X/p\rfloor/p<X$,
+giving the second. The estimate includes every prime divisor of $b$;
+it asserts no tightness for its cosocle.
+
+\subsection{Simultaneous selection}
+Take $\varepsilon=\eta_0/64$. Choose the cosocle bound $K$ so that
+its exceptional upper density is less than $\varepsilon$, and then
+fix $Y$ with $a(Y)+b(Y)<\varepsilon$.
+For all sufficiently large $X$, each of these two exceptional counts
+up to $4X$ is less than $8\varepsilon X=\eta_0X/8$.
+Choose $L>336/\eta_0$. Markov's inequality and
+\eqref{eq:reciprocal-mean} bound its exception up to $4X$ by
+$84X/L<\eta_0X/4$. Subtracting their union from
+\eqref{eq:density-input} leaves at least $\eta_0X/2$ bases in
+$[X,4X]$. Taking $X$ near $Z/4$ proves positive lower natural
+density of the globally defined selected set.
+
+Its simple quadratic anchor $p_b\equiv1\pmod4$ has order four,
+does not divide $N$, and stays simple in $b$ by the valuation formula.
+The same holds for $P>x^\alpha>x$. Eventually $P>Y$ so it is
+different from the small anchor. The source has its required simple
+anchor by construction, proving every assertion of
+Theorem~\ref{thm:domain}.
+
+\section{A full-domain bound in the fixed-power family}\label{app:fixed}
+The following necessary condition helps separate the fixed-power open
+problem from the prime-family theorem.
+
+\begin{theorem}\label{thm:fixed}
+For $k\ge1$, let $P_1$ be the largest prime of exponent exactly one
+in $c=3^k+2$, with $P_1=0$ if there is none. Then
+\begin{equation}\label{eq:fixed-bound}
+ 1\le\frac{\mpr(2,3^k)}{m(2,3^k)}<32\max(5,P_1)^3.
+\end{equation}
+Unbounded ratios in this family would consequently imply that at
+least one of the fixed bases $2,3$ has infinitely many non-Wieferich
+primes. This is a necessary consequence, not a converse.
+\end{theorem}
+\begin{proof}
+Take $k\ge2$ and write
+\[
+ \begin{gathered}
+ T=3^{k-1},\quad e_p=v_p(c),\quad A_p=ce_p/p,\quad h_c=c/\rad(c),\\
+ g=\gcd_p A_p,\quad\ell=\lcm_p e_p,\quad h=\gcd(kc,3g),\quad t=g/h_c,
+ \end{gathered}
+\]
+\[
+ \lambda=\sum_{p\mid c}e_p/p,\quad a_0=1+2\lambda,\quad
+ \nu=\frac{hT}{ca_0}.
+\]
+Eliminating $z_2$ from $F$ gives
+$W/T=kc z_3-3\sum A_pz_p$, so $\Dgen=Th$.
+Also $h_c\mid h$ and $t\mid\ell$: at a prime dividing $\rad(c)$
+inspect its own coefficient $e_p\rad(c)/p$, and at any other prime
+inspect the minimum valuation among the $e_p$.
+The identity $W=2\sum A_pz_p-cz_2$ on $F=0$ gives $m\ge\nu$.
+A real primitive lift is
+\[
+ z_2^*=-\nu,\quad z_p^*=\nu\ (p\mid c),\quad
+ y^*=z_3^*=\frac{(c\lambda+1)\nu}{kT}.
+\]
+It has norm $\nu$: all primes of $c$ are at least five,
+$c<5^k$ gives $\lambda<k/5$, and
+$k(2c-10)\ge24>15$ for $c\ge11$ proves $c\lambda+1\le kT$.
+
+Choose $y$ in the solution class $kcy=h\pmod{3g}$ nearest $y^*$.
+Its period is $3g/h$, hence $|y-y^*|\le3g/(2h)$.
+Then $z_2=(2ky-h)/3$ is integral and
+$U=(kcy-h)/3\in g\Z$.
+The real $c$-row with all coordinates
+$v=\nu+k(y-y^*)/(3\lambda)$ has target $U$.
+Put $P_p=p\ell/e_p$ and $Q=c\ell$, so $A_pP_p=Q$.
+Start from any integer lift of $U$, keep its residue classes modulo
+$P_p$, and round $v$ down in each class.
+The deficit divided by $Q$ is an integer in
+$\{0,\ldots,\omega(c)-1\}$, since it is a sum of fractional parts.
+There are more positive fractional parts than the integer deficit unless it is zero.
+Rounding that many coordinates with positive fractional part up once gives an exact lift with
+$|z_p-v|<P_p$ in every coordinate. Thus, with $P_{\max}=\max P_p$,
+\[
+ \mpr\le\nu+\frac{kg}{h}\left(1+\frac1{2\lambda}\right)+P_{\max}.
+\]
+Dividing by $m\ge\nu$, using $c/T\le5$ and $h\ge h_c$, yields
+\begin{equation}\label{eq:fixed-error}
+ \frac{\mpr}{m}\le1+5a_0k\frac{t}{h_c}
+              \left(1+\frac1{2\lambda}\right)
+              +5a_0\frac{P_{\max}}{h_c}.
+\end{equation}
+
+Put $M=\max(5,P_1)$, let $B_s$ be the product of the simple primes,
+and set $v_0=\log h_c$. Then
+\[
+ c\le B_sh_c^2,\quad k<3M+2v_0,\quad
+ \lambda_s\le M/5,\quad\lambda\le M/5+v_0.
+\]
+Here $\log B_s\le\sum_{p\le M}\log p<3M$ follows from the dyadic
+binomial bound: each interval $(2^{j-1},2^j]$ contributes at most
+$\log\binom{2^j}{2^{j-1}}<2^j\log2$, whose sum up to the next
+power of two is less than $4M\log2<3M$.
+For repeated primes $p\ge5,e\ge2$,
+\[
+ e\le p^{(e-1)/2},\qquad e/p^{e-1}\le2/5,\qquad e^2/p^e\le4/25.
+\]
+Each follows at $e=2$ and then by successive ratios. In particular
+$t\le\ell\le\sqrt{h_c}$. The elementary maxima
+$v_0e^{-v_0/2}<1$ and $v_0^2e^{-v_0/2}<3$ give
+\begin{equation}\label{eq:prod-one}
+ a_0k/\sqrt{h_c}<\tfrac65M^2+\tfrac{49}5M+14\le4M^2.
+\end{equation}
+We also have
+\begin{equation}\label{eq:prod-two}
+ a_0P_{\max}/h_c<M^2.
+\end{equation}
+To see this, write $f_{p,e}=e/p^{e-1}$.
+For a selected simple $p$, $P_p/h_c\le M\prod_{q\text{ repeated}}f_q$
+and, if there are $n$ repeated primes,
+$\lambda_{\rm rep}P_p/h_c\le(4M/25)n(2/5)^{n-1}\le4M/25$
+(the sum is zero for $n=0$). Thus
+$a_0P_p/h_c\le M(1+2M/5+8/25)<M^2$.
+For a repeated selected $p$, $P_p/h_c\le1$; its own contribution
+to $\lambda_{\rm rep}P_p/h_c$ is at most $2/5$, and all other
+ones together at most $4/25$. Hence
+$a_0P_p/h_c\le1+2M/5+28/25<M^2$, proving \eqref{eq:prod-two}.
+
+If $B_s>1$, $\lambda\ge1/M$, and \eqref{eq:prod-one} bounds the
+first error in \eqref{eq:fixed-error} by
+$20M^2(1+M/2)\le14M^3$. Together with \eqref{eq:prod-two} this
+gives $\mpr/m<16M^3$.
+If $B_s=1$, $c=2\pmod3$ is not a square, so some repeated
+exponent $e_p$ is odd and at least three. Since $\lambda\ge e_p/p$,
+\[
+ \frac{\ell}{h_c\lambda}
+ \le p^{2-e_p}\prod_{q\ne p}\frac{e_q}{q^{e_q-1}}
+ \le h_c^{-1/2}.
+\]
+Now $k<2v_0$, $a_0\le1+2v_0$, and the first error in
+\eqref{eq:fixed-error} is less than
+$(15/2)(2v_0+4v_0^2)e^{-v_0/2}<105$.
+With $M=5$, \eqref{eq:prod-two} gives $\mpr/m<231<32M^3$.
+For $k=1$, direct substitution gives $m=1,\mpr=2$.
+
+Finally, for $p\ge5$ dividing $3^k+2$, put
+$f_p(a)=(a^{p-1}-1)/p\pmod p$.
+Raising $3^k=-2+p((3^k+2)/p)$ to $p-1$ modulo $p^2$ yields
+\[
+ (3^k+2)/p\equiv2(k f_p(3)-f_p(2))\pmod p.
+\]
+If $p$ is simple, the left side is nonzero, so $p$ is non-Wieferich
+to at least one of $2,3$. An unbounded ratio forces unbounded $P_1$
+by \eqref{eq:fixed-bound}; a union of two finite sets is finite.
+This proves the fixed-base alternative.
+\end{proof}
+
+\section{Weighted covering of the type-\texorpdfstring{\(A\)}{A} lattice}\label{app:radius}
+Let \(r\ge2\), \(q_1,\ldots,q_r>0\), and
+\[
+ H=\{y\in\R^r:\textstyle\sum_i y_i=0\},\quad
+ A_{r-1}=H\cap\Z^r,\quad N_q(y)=\max_i q_i|y_i|.
+\]
+We retain the following as a useful geometric proposition, with its metric
+explicit. It is not required by the minimum certificate in Section~\ref{sec:k47}.
+
+\begin{proposition}\label{prop:radius}
+The covering radius is
+\begin{equation}\label{eq:radius}
+ \mu(A_{r-1},N_q)=
+ \max\left\{\frac12\max_iq_i,\,
+                 \frac{r-1}{\sum_i1/q_i}\right\}.
+\end{equation}
+For \(r=1\) the radius is zero instead.
+\end{proposition}
+\begin{proof}
+Let \(\mu_*\) be the right side. For \(y\in H\), set
+\[
+ l_i=\lceil y_i-\mu_*/q_i\rceil,\qquad
+ u_i=\lfloor y_i+\mu_*/q_i\rfloor.
+\]
+Each interval contains an integer, since \(2\mu_*/q_i\ge1\).
+The floor inequality gives
+\[
+ \sum_i u_i\ge
+ \left\lfloor\mu_*\sum_i1/q_i\right\rfloor-(r-1)\ge0.
+\]
+Applied to \(-y\), it gives \(\sum_i l_i\le0\).
+Sums of integer intervals have no holes, so integers
+\(z_i\in[l_i,u_i]\) can be chosen with sum zero. This proves the upper bound.
+
+For a maximal-weight index \(i\) and \(j\ne i\), take
+\(y_i=1/2,y_j=-1/2\) and all other coordinates zero.
+Its distance to every integer vector is at least \(q_i/2\).
+For the other bound put \(R_0=(r-1)/\sum_i1/q_i\), and choose
+\(y_1=-R_0/q_1\), \(y_i=1-R_0/q_i\) for \(i>1\).
+This point lies in \(H\). If \(N_q(y-z)<R_0\), then
+\(z_1<0\) and \(z_i<1\) for \(i>1\).
+For integer \(z\) this implies \(\sum_i z_i\le-1\), impossible.
+Both lower bounds follow.
+\end{proof}
+
+For pairwise coprime integers \(q_i\ge2\), put \(Q=\prod_iq_i\) and
+\(w_i=Q/q_i\). Modular reduction gives
+\[
+ \ker_{\Z}w=\operatorname{diag}(q_i)A_{r-1}.
+\]
+The diagonal map transports the original maximum norm to \(N_q\).
+Since \(\gcd_i w_i=1\), every integer target \(t\) has a lift.
+Its real minimum is \(\rho(t)=|t|/\sum_i w_i\).
+If \(m_w(t)=\min_{w x=t,\ x\in\Z^r}\norm{x}\), then
+\begin{equation}\label{eq:lift-radius}
+ \lceil\rho(t)\rceil\le m_w(t)\le
+ \lfloor\rho(t)+\mu(A_{r-1},N_q)\rfloor.
+\end{equation}
+For the upper bound, subtract any integer lift from a real minimizer,
+approximate the resulting point of the kernel by a kernel lattice point,
+and translate back. The norm of an integer vector is integral.
+
+Prescribed-sum rounding is studied by Cont and Heidari
+\cite[\S\S3.1--3.5]{ContHeidari}, including common or symmetric losses.
+Unequal coordinate weights in a maximum norm do not give a symmetric
+loss under coordinate permutations, so that comparison is not an
+automatic import of \eqref{eq:radius}.
+No priority claim for the formula is made here.
+Furthermore, a covering radius controls distance from arbitrary points
+of the real kernel. It cannot be substituted for a radial lifting
+overhead, or assigned to a projected fibre, without identifying both
+the actual difference lattice and the transported norm.
+
+\begin{thebibliography}{10}\raggedright
+\bibitem{Pasten}
+H. Pasten, \emph{Arithmetic derivatives through geometry of numbers},
+Canadian Mathematical Bulletin \textbf{65} (2022), no.~4, 906--923.
+\href{https://doi.org/10.4153/S0008439521000990}{doi:10.4153/S0008439521000990}.
+Consulted \href{https://arxiv.org/abs/2106.16165v3}{arXiv:2106.16165v3}
+(11 December 2021).
+
+\bibitem{Stanley}
+R. P. Stanley, \emph{Smith normal form in combinatorics},
+Journal of Combinatorial Theory, Series A \textbf{144} (2016), 476--495.
+\href{https://doi.org/10.1016/j.jcta.2016.06.013}{doi:10.1016/j.jcta.2016.06.013}.
+Consulted \href{https://arxiv.org/abs/1602.00166v2}{arXiv:1602.00166v2}.
+
+\bibitem{UniqueBetti}
+P. A. Garc\'ia-S\'anchez, I. Ojeda and J. C. Rosales,
+\emph{Affine semigroups having a unique Betti element},
+Journal of Algebra and Its Applications \textbf{12} (2013), no.~3,
+1250177, 11 pp.
+\href{https://doi.org/10.1142/S0219498812501770}{doi:10.1142/S0219498812501770}.
+Consulted \href{https://arxiv.org/abs/1203.4138v2}{arXiv:1203.4138v2}.
+
+\bibitem{Autry}
+J. Autry, P. Graves, J. Loucks, C. O'Neill, V. Ponomarenko and S. Yih,
+\emph{Squarefree divisor complexes of certain numerical semigroup elements},
+Involve \textbf{14} (2021), no.~1, 1--9.
+\href{https://doi.org/10.2140/involve.2021.14.1}{doi:10.2140/involve.2021.14.1}.
+Consulted author text: \url{https://vadim.sdsu.edu/aglopy.pdf}.
+
+\bibitem{CyrusianKaplan}
+S. Cyrusian and N. Kaplan, \emph{Ordinarization numbers of numerical semigroups},
+Communications in Algebra (2026), 1--24.
+\href{https://doi.org/10.1080/00927872.2026.2615092}{doi:10.1080/00927872.2026.2615092}.
+Consulted \href{https://arxiv.org/abs/2506.10222v2}{arXiv:2506.10222v2}.
+
+\bibitem{ContHeidari}
+R. Cont and M. Heidari, \emph{Optimal rounding under integer constraints},
+\href{https://arxiv.org/abs/1501.00014v3}{arXiv:1501.00014v3}
+(5 August 2026; first version 2014).
+
+\bibitem{Pascadi}
+A. Pascadi, \emph{Large sieve inequalities for exceptional Maass forms
+and the greatest prime factor of $n^2+1$},
+Forum of Mathematics, Pi \textbf{14} (2026), e8.
+\href{https://doi.org/10.1017/fmp.2026.10025}{doi:10.1017/fmp.2026.10025}.
+All numbered locators here refer to
+\href{https://arxiv.org/abs/2404.04239v3}{arXiv:2404.04239v3}.
+
+\bibitem{FelliniMurty}
+N. Fellini and M. R. Murty,
+\emph{Wieferich primes in number fields and the conjectures of
+Ankeny--Artin--Chowla and Mordell},
+Journal of Number Theory \textbf{285} (2026), 209--229.
+\href{https://doi.org/10.1016/j.jnt.2026.01.002}{doi:10.1016/j.jnt.2026.01.002}.
+Theorem locators refer to
+\href{https://arxiv.org/abs/2508.08472v2}{arXiv:2508.08472v2}.
+\end{thebibliography}
+\end{document}

@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "Please cite the manuscript and identify the version of the companion used."
+type: software
+title: "Exact bounded fibres and the cost of primitive Wronskians"
+version: "0.2.2"
+authors:
+  - family-names: "Babanskyy"
+    given-names: "Oleksiy"
+    orcid: "https://orcid.org/0009-0001-6176-6208"
+abstract: "Research manuscript and exact-arithmetic companion for bounded arithmetic-derivative fibres and primitive Wronskian costs."
+preferred-citation:
+  type: article
+  title: "Exact bounded fibres and the cost of primitive Wronskians"
+  authors:
+    - family-names: "Babanskyy"
+      given-names: "Oleksiy"
+      orcid: "https://orcid.org/0009-0001-6176-6208"
+  year: 2026
+  notes: "Unpublished manuscript, version 0.2.2."

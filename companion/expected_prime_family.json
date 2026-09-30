@@ -1,0 +1,341 @@
+{
+  "first_wrap": {
+    "abstract_phase_cases": 535,
+    "maximal_phase_ties": 59
+  },
+  "prime_gap": {
+    "all_simple_pivots": 47,
+    "cases": [
+      {
+        "D": 1,
+        "c": 5,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 2,
+        "q": 3
+      },
+      {
+        "D": 1,
+        "c": 7,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 3,
+        "q": 5
+      },
+      {
+        "D": 1,
+        "c": 13,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 6,
+        "q": 11
+      },
+      {
+        "D": 1,
+        "c": 15,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 6,
+        "q": 13
+      },
+      {
+        "D": 1,
+        "c": 19,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 9,
+        "q": 17
+      },
+      {
+        "D": 1,
+        "c": 21,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 9,
+        "q": 19
+      },
+      {
+        "D": 1,
+        "c": 31,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 15,
+        "q": 29
+      },
+      {
+        "D": 1,
+        "c": 33,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 15,
+        "q": 31
+      },
+      {
+        "D": 1,
+        "c": 39,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 18,
+        "q": 37
+      },
+      {
+        "D": 1,
+        "c": 43,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 21,
+        "q": 41
+      },
+      {
+        "D": 3,
+        "c": 45,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 20,
+        "q": 43
+      },
+      {
+        "D": 1,
+        "c": 55,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 26,
+        "q": 53
+      },
+      {
+        "D": 1,
+        "c": 61,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 30,
+        "q": 59
+      },
+      {
+        "D": 3,
+        "c": 63,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 29,
+        "q": 61
+      },
+      {
+        "D": 1,
+        "c": 69,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 33,
+        "q": 67
+      },
+      {
+        "D": 1,
+        "c": 73,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 36,
+        "q": 71
+      },
+      {
+        "D": 5,
+        "c": 75,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 34,
+        "q": 73
+      },
+      {
+        "D": 1,
+        "c": 85,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 41,
+        "q": 83
+      },
+      {
+        "D": 1,
+        "c": 91,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 44,
+        "q": 89
+      },
+      {
+        "D": 3,
+        "c": 99,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 47,
+        "q": 97
+      },
+      {
+        "D": 1,
+        "c": 103,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 51,
+        "q": 101
+      },
+      {
+        "D": 1,
+        "c": 105,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 51,
+        "q": 103
+      },
+      {
+        "D": 1,
+        "c": 109,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 54,
+        "q": 107
+      },
+      {
+        "D": 1,
+        "c": 111,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 54,
+        "q": 109
+      },
+      {
+        "D": 1,
+        "c": 115,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 56,
+        "q": 113
+      },
+      {
+        "D": 1,
+        "c": 129,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 63,
+        "q": 127
+      },
+      {
+        "D": 1,
+        "c": 133,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 65,
+        "q": 131
+      },
+      {
+        "D": 1,
+        "c": 139,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 69,
+        "q": 137
+      },
+      {
+        "D": 1,
+        "c": 141,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 69,
+        "q": 139
+      },
+      {
+        "D": 1,
+        "c": 151,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 75,
+        "q": 149
+      },
+      {
+        "D": 3,
+        "c": 153,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 74,
+        "q": 151
+      },
+      {
+        "D": 1,
+        "c": 159,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 78,
+        "q": 157
+      },
+      {
+        "D": 1,
+        "c": 165,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 81,
+        "q": 163
+      },
+      {
+        "D": 5,
+        "c": 175,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 84,
+        "q": 173
+      },
+      {
+        "D": 1,
+        "c": 181,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 90,
+        "q": 179
+      },
+      {
+        "D": 1,
+        "c": 183,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 90,
+        "q": 181
+      },
+      {
+        "D": 1,
+        "c": 193,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 96,
+        "q": 191
+      },
+      {
+        "D": 1,
+        "c": 195,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 96,
+        "q": 193
+      },
+      {
+        "D": 1,
+        "c": 199,
+        "kind": "prime",
+        "m": 1,
+        "mprim": 99,
+        "q": 197
+      },
+      {
+        "D": 1,
+        "c": 201,
+        "kind": "composite_simple",
+        "m": 1,
+        "mprim": 99,
+        "q": 199
+      }
+    ],
+    "exact_original_minima": 40,
+    "excluded_powerful_q": [
+      7,
+      23,
+      47,
+      79,
+      167
+    ]
+  },
+  "scope": "Finite controls; universal statements are proved in the manuscript.",
+  "status": "PASS"
+}
