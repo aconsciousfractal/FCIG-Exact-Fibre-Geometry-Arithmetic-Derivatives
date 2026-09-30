@@ -1,8 +1,10 @@
 cff-version: 1.2.0
-message: "Please cite the manuscript and identify the version of the companion used."
+message: "Unpublished companion; canonical URL reserved for public distribution. Cite the manuscript, companion version and evidence identity."
 type: software
 title: "Exact bounded fibres and the cost of primitive Wronskians"
-version: "0.2.2"
+version: "0.2.3"
+repository-code: "https://github.com/aconsciousfractal/FCIG-Exact-Fibre-Geometry-Arithmetic-Derivatives"
+url: "https://github.com/aconsciousfractal/FCIG-Exact-Fibre-Geometry-Arithmetic-Derivatives"
 authors:
   - family-names: "Babanskyy"
     given-names: "Oleksiy"
@@ -16,4 +18,4 @@ preferred-citation:
       given-names: "Oleksiy"
       orcid: "https://orcid.org/0009-0001-6176-6208"
   year: 2026
-  notes: "Unpublished manuscript, version 0.2.2."
+  notes: "Unpublished manuscript, version 0.2.3. Computational evidence manifest EVIDENCE_SHA256.txt, SHA-256 9dba941d261ab87247323478b41bda18dd422b902f4f9f5ad1179d86ccdfe01c."

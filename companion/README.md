@@ -1,7 +1,7 @@
 # Exact-arithmetic companion
 
 `verify_prime_family.py` checks literal lower cubes for eligible prime indices
-below200, all47 simple-pivot lifts in that range, boundary cases, and535 abstract
+below 200, all 47 simple-pivot lifts in that range, boundary cases, and 535 abstract
 first-wrap controls. `verify_k47.py` verifies the full compact certificate and,
 with `--self-test`, rejects ten corruptions. `verify_finite.py` certifies the
 x14/x44 minima and two spectral benchmarks, including original equations,

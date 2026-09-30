@@ -2,7 +2,7 @@
 
 **Oleksiy Babanskyy** · [ORCID 0009-0001-6176-6208](https://orcid.org/0009-0001-6176-6208)
 
-Unpublished research manuscript and exact-arithmetic companion, version **0.2.2**.
+Unpublished research manuscript and exact-arithmetic companion, version **0.2.3**.
 The work has not undergone independent specialist review.
 
 The paper compares two costs in Pasten's arithmetic-derivative lattice:
@@ -42,3 +42,15 @@ python scripts/check_manifest.py
 These commands need no third-party Python packages or network. The PDF is
 included; rebuilding it additionally requires an existing pdflatex installation.
 See [licence scope](LICENSE_SCOPE.md), [AI use](AI_USE.md) and [citation](CITATION.cff).
+
+## Companion identity
+
+Canonical repository address: [https://github.com/aconsciousfractal/FCIG-Exact-Fibre-Geometry-Arithmetic-Derivatives](https://github.com/aconsciousfractal/FCIG-Exact-Fibre-Geometry-Arithmetic-Derivatives).
+This is the prepared, unpublished version **0.2.3**; anonymous access at that
+address must be confirmed on public release.
+
+Computational evidence manifest: [EVIDENCE_SHA256.txt](EVIDENCE_SHA256.txt).
+Its SHA-256 is `9dba941d261ab87247323478b41bda18dd422b902f4f9f5ad1179d86ccdfe01c`.
+This identity covers the exact data, checkers, tests and replay configuration,
+and excludes the manuscript and prose that cite it. The paper prints the same
+digest. See [REPRODUCE.md](REPRODUCE.md) for verification.

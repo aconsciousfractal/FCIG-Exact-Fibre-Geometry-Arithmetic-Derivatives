@@ -3,7 +3,7 @@
 \usepackage{lmodern}
 \usepackage[margin=25mm]{geometry}
 \usepackage{amsmath,amssymb,amsthm,booktabs,array}
-\usepackage{microtype,fancyhdr}
+\usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 \hypersetup{
   pdftitle={Exact bounded fibres and the cost of primitive Wronskians},
@@ -11,10 +11,7 @@
   pdfsubject={Arithmetic derivatives, bounded integer fibres and primitive Wronskian costs},
   pdfkeywords={arithmetic derivatives, integer lattices, bounded fibres, Wronskians, exact certificates}
 }
-\pagestyle{fancy}\fancyhf{}
-\fancyhead[L]{\small Exact fibres and primitive Wronskians}
-\fancyhead[R]{\small O. Babanskyy}\fancyfoot[C]{\thepage}
-\setlength{\headheight}{14pt}
+\pagestyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -52,7 +49,6 @@ the two minima for $2+3^{47}$ and for the bases $x=14,44$.
 Unbounded separation in the fixed-power family and in the radical-small
 regime remains open. No consequence for the $abc$ conjecture is claimed.
 \end{abstract}
-\clearpage\tableofcontents\clearpage
 
 \section{The two minimum problems}\label{sec:intro}
 Let $1\le a\le b$, $a+b=c>2$, and $\gcd(a,b)=1$. The prime supports
@@ -1182,6 +1178,24 @@ still needed. The bounds leave open rare bases, other budget scales
 and collective frequency arguments.
 In particular no small-derivative estimate uniform over all triples,
 and no advance toward the $abc$ conjecture, follows from these results.
+
+\paragraph{Computational materials.}
+The companion for this manuscript is version 0.2.3. Its canonical
+repository address, reserved for public distribution, is
+\begin{quote}\small\noindent
+\href{https://github.com/aconsciousfractal/FCIG-Exact-Fibre-Geometry-Arithmetic-Derivatives}{%
+\texttt{https://github.com/aconsciousfractal/}\\
+\texttt{FCIG-Exact-Fibre-Geometry-Arithmetic-Derivatives}}
+\end{quote}
+Anonymous access at this address must be confirmed when the package is released.
+The computational evidence is identified by the SHA-256 digest of
+\texttt{EVIDENCE\_SHA256.txt}:
+\begin{center}\small\texttt{9dba941d261ab87247323478b41bda18dd422b902f4f9f5ad1179d86ccdfe01c}\end{center}
+That manifest covers the certificate data, exact checkers, tests and replay
+configuration; it excludes the paper and this paragraph, so the identity
+does not depend on the PDF. Run
+\texttt{python scripts/check\_manifest.py --evidence} to check its entries
+and compare the manifest digest with the value printed here.
 
 The accompanying repository has a ten-minute reading path and a
 standard-library replay in \texttt{README\_REVIEWER.md} and

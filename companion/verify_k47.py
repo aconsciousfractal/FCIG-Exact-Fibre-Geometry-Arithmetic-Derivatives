@@ -21,6 +21,50 @@ def require(condition, message):
     if not condition:
         raise CertificateError(message)
 
+
+def integer_vector(value, size, name):
+    require(type(value) is list and len(value) == size, name + " dimensions")
+    for index, entry in enumerate(value):
+        require(type(entry) is int, f"{name}[{index}] must be an exact integer")
+
+
+def integer_matrix(value, rows, columns, name):
+    require(type(value) is list and len(value) == rows, name + " dimensions")
+    for index, row in enumerate(value):
+        integer_vector(row, columns, f"{name}[{index}]")
+
+
+def phase_shape(value, name):
+    scalars = ("j", "v", "t", "H0", "x0", "beta", "C0")
+    require(type(value) is dict and set(value) == {*scalars, "residues"},
+            name + " fields")
+    for key in scalars:
+        require(type(value[key]) is int, name + "." + key + " must be an exact integer")
+    integer_vector(value["residues"], 4, name + ".residues")
+
+
+def validate_certificate_shape(cert):
+    """Validate the fixed JSON schema before any certificate arithmetic."""
+    scalars = ("k", "c", "image_generator", "useful_minimum", "primitive_minimum")
+    vectors = {"ordered_primes": 7, "f_row": 7, "w_row": 7,
+               "useful_projection": 2, "positive_primitive_witness": 7}
+    matrices = {"factorization": (5, 2), "projection_basis": (2, 2),
+                "all_useful_optimizers": (20, 7)}
+    phases = ("useful_phase", "negative_primitive_phase")
+    require(type(cert) is dict, "certificate must be a JSON object")
+    require(set(cert) == {"format", *scalars, *vectors, *matrices, *phases},
+            "certificate fields")
+    require(cert["format"] == "p68_k47_certificate_v1", "certificate format")
+    for key in scalars:
+        require(type(cert[key]) is int, key + " must be an exact integer")
+    for key, size in vectors.items():
+        integer_vector(cert[key], size, key)
+    for key, (rows, columns) in matrices.items():
+        integer_matrix(cert[key], rows, columns, key)
+    for key in phases:
+        phase_shape(cert[key], key)
+
+
 @lru_cache(maxsize=None)
 def prime(n):
     if type(n) is not int or n < 2:
@@ -70,7 +114,7 @@ def lift(k, ps, ph, n, ys):
             *[r+p*y for p,r,y in zip(ps,ph["residues"],ys)], ph["v"]]
 
 def verify(cert):
-    require(cert.get("format") == "p68_k47_certificate_v1", "certificate format")
+    validate_certificate_shape(cert)
     k = cert["k"]
     require(type(k) is int and k == 47, "this verifier is for k=47")
     fac = cert["factorization"]
