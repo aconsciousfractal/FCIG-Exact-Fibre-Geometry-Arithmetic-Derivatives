@@ -2,7 +2,7 @@
 
 **Oleksiy Babanskyy** · [ORCID 0009-0001-6176-6208](https://orcid.org/0009-0001-6176-6208)
 
-Unpublished research manuscript and exact-arithmetic companion, version **0.2.3**.
+Research manuscript and exact-arithmetic companion, version **0.2.3**.
 The work has not undergone independent specialist review.
 
 The paper compares two costs in Pasten's arithmetic-derivative lattice:
@@ -41,7 +41,9 @@ python scripts/check_manifest.py
 
 These commands need no third-party Python packages or network. The PDF is
 included; rebuilding it additionally requires an existing pdflatex installation.
-See [licence scope](LICENSE_SCOPE.md), [AI use](AI_USE.md) and [citation](CITATION.cff).
+The manuscript is licensed under [CC BY 4.0](LICENSE_MANUSCRIPT.md); the
+companion uses MIT. See [licence scope](LICENSE_SCOPE.md),
+[AI use](AI_USE.md) and [citation](CITATION.cff).
 
 ## Companion identity
 
